@@ -86,180 +86,74 @@
         </button>
         <div id="table-container">
             <table>
-                <tr>
-                    <th class="col1">
-                        <input type="checkbox">
-                    </th>
-                    <th class="col2">Group</th>
-                    <th class="col3">Name</th>
-                    <th class="col4">Gender</th>
-                    <th class="col5">Birthday</th>
-                    <th class="col6">Status</th>
-                    <th class="col7">Options</th>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="checkbox">
-                    </td>
-                    <td>KN-21</td>
-                    <td>John Smith</td>
-                    <td>M</td>
-                    <td>11.05.2004</td>
-                    <td>
-                        <span class="green"></span>
-                    </td>
-                    <td>
-                        <button>
-                            <i class="fa-solid fa-pencil"></i>
-                        </button>
-                        <button>
-                            <i class="fa-solid fa-xmark"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="checkbox">
-                    </td>
-                    <td>KN-21</td>
-                    <td>John Smith</td>
-                    <td>M</td>
-                    <td>11.05.2004</td>
-                    <td>
-                        <span class="gray"></span>
-                    </td>
-                    <td>
-                        <button>
-                            <i class="fa-solid fa-pencil"></i>
-                        </button>
-                        <button>
-                            <i class="fa-solid fa-xmark"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="checkbox">
-                    </td>
-                    <td>KN-21</td>
-                    <td>John Smith</td>
-                    <td>M</td>
-                    <td>11.05.2004</td>
-                    <td>
-                        <span class="gray"></span>
-                    </td>
-                    <td>
-                        <button>
-                            <i class="fa-solid fa-pencil"></i>
-                        </button>
-                        <button>
-                            <i class="fa-solid fa-xmark"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="checkbox">
-                    </td>
-                    <td>KN-21</td>
-                    <td>John Smith</td>
-                    <td>M</td>
-                    <td>11.05.2004</td>
-                    <td>
-                        <span class="gray"></span>
-                    </td>
-                    <td>
-                        <button>
-                            <i class="fa-solid fa-pencil"></i>
-                        </button>
-                        <button>
-                            <i class="fa-solid fa-xmark"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="checkbox">
-                    </td>
-                    <td>KN-21</td>
-                    <td>John Smith</td>
-                    <td>M</td>
-                    <td>11.05.2004</td>
-                    <td>
-                        <span class="gray"></span>
-                    </td>
-                    <td>
-                        <button>
-                            <i class="fa-solid fa-pencil"></i>
-                        </button>
-                        <button>
-                            <i class="fa-solid fa-xmark"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="checkbox">
-                    </td>
-                    <td>KN-21</td>
-                    <td>John Smith</td>
-                    <td>M</td>
-                    <td>11.05.2004</td>
-                    <td>
-                        <span class="gray"></span>
-                    </td>
-                    <td>
-                        <button>
-                            <i class="fa-solid fa-pencil"></i>
-                        </button>
-                        <button>
-                            <i class="fa-solid fa-xmark"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="checkbox">
-                    </td>
-                    <td>KN-21</td>
-                    <td>John Smith</td>
-                    <td>M</td>
-                    <td>11.05.2004</td>
-                    <td>
-                        <span class="gray"></span>
-                    </td>
-                    <td>
-                        <button>
-                            <i class="fa-solid fa-pencil"></i>
-                        </button>
-                        <button>
-                            <i class="fa-solid fa-xmark"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="checkbox">
-                    </td>
-                    <td>KN-21</td>
-                    <td>John Smith</td>
-                    <td>M</td>
-                    <td>11.05.2004</td>
-                    <td>
-                        <span class="gray"></span>
-                    </td>
-                    <td>
-                        <button>
-                            <i class="fa-solid fa-pencil"></i>
-                        </button>
-                        <button>
-                            <i class="fa-solid fa-xmark"></i>
-                        </button>
-                    </td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th class="col1">
+                            <input type="checkbox">
+                        </th>
+                        <th class="col2">Group</th>
+                        <th class="col3">Name</th>
+                        <th class="col4">Gender</th>
+                        <th class="col5">Birthday</th>
+                        <th class="col6">Status</th>
+                        <th class="col7">Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
             </table>
         </div>
     </main>
 
+    <div id="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title"></h3>
+                <button id="modal-close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+                <label for="group">
+                    Group
+                </label>
+                <select id="group">
+                    <option value="PZ-21">PZ-21</option>
+                </select>
+
+                <label for="first-name">
+                    First name
+                </label>
+                <input type="text" id="first-name">
+
+                <label for="last-name">
+                    Last name
+                </label>
+                <input type="text" id="last-name">
+
+                <label for="gender">
+                    Gender
+                </label>
+                <select id="gender">
+                    <option value="M">M</option>
+                    <option value="F">F</option>
+                </select>
+
+                <label for="birthday">
+                    Birthday
+                </label>
+                <input type="date" id="birthday">
+            </div>
+
+            <div class="modal-footer">
+                <button id="btn-cancel">Cancel</button>
+                <button id="btn-create">Create</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./students.js"></script>
 </body>
 </html>
