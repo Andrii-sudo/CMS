@@ -2,7 +2,7 @@ document.getElementById("btn-add").addEventListener("click", showModalAdd);
 document.getElementById("modal-close").addEventListener("click", closeModal);
 document.getElementById("btn-cancel").addEventListener("click", closeModal);
 document.getElementById("btn-create").addEventListener("click", addStudent);
-
+document.getElementById("main-checkbox").addEventListener("change", changeMainCheckBox);
 
 // let lsBtnEdit = document.querySelectorAll(".btn-edit");
 // for (let i = 0; i < lsBtnEdit.length; i++)
@@ -89,4 +89,15 @@ function addStudent()
     newRow.appendChild(cellOptions);
 
     tableBody.appendChild(newRow);
+}
+
+function changeMainCheckBox()
+{
+    const checkBox = document.getElementById("main-checkbox");
+    const lsCheckbox = document.querySelectorAll('tbody input[type="checkbox"]');
+
+    for (let i = 0; i < lsCheckbox.length; i++)
+    {
+        lsCheckbox[i].checked = checkBox.checked;
+    }
 }
