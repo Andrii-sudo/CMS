@@ -1,8 +1,14 @@
+// modal
 document.getElementById("btn-add").addEventListener("click", showModalAdd);
 document.getElementById("modal-close").addEventListener("click", closeModal);
 document.getElementById("btn-cancel").addEventListener("click", closeModal);
 //document.getElementById("btn-apply").addEventListener("click", addStudent);
 document.getElementById("main-checkbox").addEventListener("change", changeMainCheckBox);
+
+// dialog
+document.getElementById("dialog-close").addEventListener("click", closeDialogDel);
+document.getElementById("dialog-cancel").addEventListener("click", closeDialogDel);
+document.getElementById("dialog-ok").addEventListener("click", deleteStudents);
 
 // let lsBtnEdit = document.querySelectorAll(".btn-edit");
 // for (let i = 0; i < lsBtnEdit.length; i++)
@@ -14,7 +20,10 @@ function showModalAdd()
 {
     document.getElementById("modal-title").innerText = "Add student";
     document.getElementById("btn-apply").innerText = "Create";
+
+    document.getElementById("btn-apply").removeEventListener("click", addStudent);
     document.getElementById("btn-apply").addEventListener("click", addStudent);
+
     document.getElementById("modal").style.display = "block";
 }
 
@@ -23,6 +32,7 @@ function showModalEdit()
     document.getElementById("modal-title").innerText = "Edit student";
     document.getElementById("btn-apply").innerText = "Save";
     document.getElementById("btn-apply").removeEventListener("click", addStudent);
+    // Обробник для зміни даних про студента
     document.getElementById("modal").style.display = "block";
 }
 
@@ -50,7 +60,7 @@ function addStudent()
 
     closeModal();
 
-    const tableBody = document.getElementsByTagName("tbody")[0];
+    const tableBody = document.querySelector("tbody");
     const newRow = document.createElement("tr");
 
     const cellCheckBox = document.createElement("td");
@@ -82,6 +92,7 @@ function addStudent()
 
     const optionDel = document.createElement("button");
     optionDel.className = "btn-del";
+    optionDel.addEventListener("click", showDialogDel);
 
     const iconDel = document.createElement("i");
     iconDel.className = "fa-solid fa-xmark";
@@ -112,4 +123,49 @@ function changeMainCheckBox()
     {
         lsCheckbox[i].checked = checkBox.checked;
     }
+}
+
+function showDialogDel()
+{
+    let strUsernames = "";
+    const lsRows = document.getElementsByTagName("tr");
+    for (let i = 1; i < lsRows.length; i++)
+    {
+        if (lsRows[i].querySelector("td input[type='checkbox']").checked)
+        {
+            strUsernames += lsRows[i].querySelectorAll("td")[2].innerText + " ";
+        }
+    }
+
+    if (strUsernames !== "")
+    {
+        document.getElementById("dialog").style.display = "block";
+        document.getElementById("dialog-username").innerText = strUsernames;
+    }
+    else
+    {
+        alert("Select at least one student");
+    }
+}
+
+function closeDialogDel()
+{
+    document.getElementById("dialog").style.display = "none";
+}
+
+function deleteStudents()
+{
+    const lsRows = document.getElementsByTagName("tr");
+    for (let i = 1; i < lsRows.length;)
+    {
+        if (lsRows[i].querySelector("td input[type='checkbox']").checked)
+        {
+            lsRows[i].remove();
+        }
+        else
+        {
+            i++;
+        }
+    }
+    closeDialogDel();
 }

@@ -104,7 +104,8 @@ button i
     margin: 0 auto;
 }
 
-#modal
+#modal,
+#dialog
 {
     display: none;
     position: fixed;
@@ -136,7 +137,8 @@ button i
     border-radius: 10px;
 }
 
-.modal-header
+.modal-header,
+.dialog-header
 {
     display: flex;
     flex-direction: row;
@@ -154,7 +156,8 @@ h3
     margin: 0;
 }
 
-#modal-close
+#modal-close,
+#dialog-close
 {
     width: 25px;
     padding: 3px 0 0 0;
@@ -194,4 +197,37 @@ h3
 {
     padding: 5px;
     margin: 0 10px 0 0;
+}
+
+#dialog-content
+{
+    background-color: white;
+
+    width: 40%;
+    height: 45%;
+
+    min-width: 300px;
+    min-height: 280px;
+
+    margin: 0 auto;
+
+    border: 2px solid rgb(100, 100, 100);
+    border-radius: 10px;
+}
+
+.dialog-body
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    height: 45%;
+}
+
+.dialog-body p
+{
+    font-size: 18px;
+    font-weight: bold;
+
+    margin: 0 0 0 10%;
 }
