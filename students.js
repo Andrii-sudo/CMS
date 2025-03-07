@@ -1,7 +1,7 @@
 document.getElementById("btn-add").addEventListener("click", showModalAdd);
 document.getElementById("modal-close").addEventListener("click", closeModal);
 document.getElementById("btn-cancel").addEventListener("click", closeModal);
-document.getElementById("btn-create").addEventListener("click", addStudent);
+//document.getElementById("btn-apply").addEventListener("click", addStudent);
 document.getElementById("main-checkbox").addEventListener("change", changeMainCheckBox);
 
 // let lsBtnEdit = document.querySelectorAll(".btn-edit");
@@ -13,31 +13,42 @@ document.getElementById("main-checkbox").addEventListener("change", changeMainCh
 function showModalAdd()
 {
     document.getElementById("modal-title").innerText = "Add student";
+    document.getElementById("btn-apply").innerText = "Create";
+    document.getElementById("btn-apply").addEventListener("click", addStudent);
     document.getElementById("modal").style.display = "block";
 }
 
 function showModalEdit()
 {
     document.getElementById("modal-title").innerText = "Edit student";
+    document.getElementById("btn-apply").innerText = "Save";
+    document.getElementById("btn-apply").removeEventListener("click", addStudent);
     document.getElementById("modal").style.display = "block";
 }
 
 function closeModal()
 {
     document.getElementById("modal").style.display = "none";
+    clearForm();
+}
+
+function clearForm()
+{
+    document.getElementById("group").value = "";
+    document.getElementById("first-name").value = "";
+    document.getElementById("last-name").value = "";
+    document.getElementById("birthday").value = "";
 }
 
 function addStudent()
 {
-    document.getElementById("modal").style.display = "none";
-
     const group     = document.getElementById("group").value;
     const firstName = document.getElementById("first-name").value;
     const lastName  = document.getElementById("last-name").value;
     const gender    = document.getElementById("gender").value;
     const birthday  = document.getElementById("birthday").value;
 
-    // очистити дані
+    closeModal();
 
     const tableBody = document.getElementsByTagName("tbody")[0];
     const newRow = document.createElement("tr");
@@ -63,6 +74,7 @@ function addStudent()
 
     const optionEdit = document.createElement("button");
     optionEdit.className = "btn-edit";
+    optionEdit.addEventListener("click", showModalEdit);
 
     const iconEdit = document.createElement("i");
     iconEdit.className = "fa-solid fa-pencil";
