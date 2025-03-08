@@ -16,7 +16,12 @@ button
     padding: 0;
 }
 
-h2
+button:hover
+{
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+}
+
+main h2
 {
     margin: 20px 0 0 5% ;
     font-weight: 500;
@@ -50,8 +55,15 @@ table, tr, th, td
 table
 {
     width: 100%;
-    margin: 0 auto;
 }
+
+.col1 { width: 5%;  }
+.col2 { width: 10%; }
+.col3 { width: 20%; }
+.col4 { width: 5%;  }
+.col5 { width: 10%; }
+.col6 { width: 5%;  }
+.col7 { width: 10%; }
 
 th
 {
@@ -63,14 +75,6 @@ input[type="checkbox"]
     height: 20px;
     width: 20px;
 }
-
-.col1 { width: 5%;  }
-.col2 { width: 10%; }
-.col3 { width: 20%; }
-.col4 { width: 5%;  }
-.col5 { width: 10%; }
-.col6 { width: 5%;  }
-.col7 { width: 10%; }
 
 td span
 {
@@ -150,7 +154,8 @@ button i
     padding: 30px 10px 20px 20px;
 }
 
-h3
+.modal-header h3,
+.dialog-header h3
 {
     display: inline-block;
     margin: 0;
@@ -182,7 +187,8 @@ h3
     padding: 3px;
 }
 
-.modal-footer
+.modal-footer,
+.dialog-footer
 {
     display: flex;
     flex-direction: row;
@@ -193,7 +199,8 @@ h3
     height: 50px;
 }
 
-.modal-footer button
+.modal-footer button,
+.dialog-footer button
 {
     padding: 5px;
     margin: 0 10px 0 0;

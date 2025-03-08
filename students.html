@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <title>CMS &#183 Students</title>
 
-    <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="students.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/students.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header>
@@ -17,36 +17,39 @@
                 <h1 id="logo">CMS</h1>
             </a>
         </div>
+
         <div class="header-section">
             <div id="dropdown-notify">
-                <a href="./messages.html" id="notify-link">
+                <a href="./messages.html">
                     <i class="fa-regular fa-bell" id="notify-icon"></i>
                 </a>
                 <div id="dropdown-notify-content">
-                    <div class="notify-item">
+                    <div class="dropdown-notify-item">
                         <div class="notify-user-info">
                             <img src="images/userPhoto.png" alt="user photo" class="user-photo">
                             <p class="notify-user-name">Admin</p>
                         </div>
-                        <p class="notify-message">
+                        <p class="dropdown-notify-message">
                             The sun rises softly over the misty mountains
                         </p>
                     </div>
-                    <div class="notify-item">
+
+                    <div class="dropdown-notify-item">
                         <div class="notify-user-info">
                             <img src="images/userPhoto.png" alt="user photo" class="user-photo">
                             <p class="notify-user-name">Admin</p>
                         </div>
-                        <p class="notify-message">
+                        <p class="dropdown-notify-message">
                             Jack finished his coffee and grabbed his keys
                         </p>
                     </div>
-                    <div class="notify-item">
+
+                    <div class="dropdown-notify-item">
                         <div class="notify-user-info">
                             <img src="images/userPhoto.png" alt="user photo" class="user-photo">
                             <p class="notify-user-name">Admin</p>
                         </div>
-                        <p class="notify-message">
+                        <p class="dropdown-notify-message">
                             Summer breeze whispers through the open window
                         </p>
                     </div>
@@ -100,8 +103,7 @@
                         <th class="col7">Options</th>
                     </tr>
                 </thead>
-                <tbody>
-                </tbody>
+                <tbody></tbody>
             </table>
         </div>
     </main>
@@ -116,41 +118,30 @@
             </div>
 
             <div class="modal-body">
-
-                <label for="group">
-                    Group
-                </label>
+                <label for="group">Group</label>
                 <select id="group">
                     <option value="PZ-21">PZ-21</option>
                 </select>
 
-                <label for="first-name">
-                    First name
-                </label>
+                <label for="first-name">First name</label>
                 <input type="text" id="first-name">
 
-                <label for="last-name">
-                    Last name
-                </label>
+                <label for="last-name">Last name</label>
                 <input type="text" id="last-name">
 
-                <label for="gender">
-                    Gender
-                </label>
+                <label for="gender">Gender</label>
                 <select id="gender">
                     <option value="M">M</option>
                     <option value="F">F</option>
                 </select>
 
-                <label for="birthday">
-                    Birthday
-                </label>
+                <label for="birthday">Birthday</label>
                 <input type="date" id="birthday">
             </div>
 
             <div class="modal-footer">
-                <button id="btn-cancel">Cancel</button>
-                <button id="btn-apply">Create</button>
+                <button id="modal-cancel">Cancel</button>
+                <button id="modal-apply"></button>
             </div>
         </div>
     </div>
@@ -163,19 +154,21 @@
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
+
             <div class="dialog-body">
                 <p id="dialog-message">
-                    Are you sure you want to delete user(s): <span id="dialog-username"></span>?
+                    Are you sure you want to delete user(s): <span id="dialog-usernames"></span>?
                 </p>
             </div>
-            <div class="modal-footer">
+
+            <div class="dialog-footer">
                 <button id="dialog-cancel">Cancel</button>
                 <button id="dialog-ok">Ok</button>
             </div>
         </div>
     </div>
 
-    <script src="./students.js"></script>
-    <script src="./navbar.js"></script>
+    <script src="scripts/students.js"></script>
+    <script src="scripts/navbar.js"></script>
 </body>
 </html>

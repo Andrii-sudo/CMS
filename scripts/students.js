@@ -1,28 +1,24 @@
 // modal
 document.getElementById("btn-add").addEventListener("click", showModalAdd);
 document.getElementById("modal-close").addEventListener("click", closeModal);
-document.getElementById("btn-cancel").addEventListener("click", closeModal);
-//document.getElementById("btn-apply").addEventListener("click", addStudent);
-document.getElementById("main-checkbox").addEventListener("change", changeMainCheckBox);
+document.getElementById("modal-cancel").addEventListener("click", closeModal);
 
 // dialog
 document.getElementById("dialog-close").addEventListener("click", closeDialogDel);
 document.getElementById("dialog-cancel").addEventListener("click", closeDialogDel);
 document.getElementById("dialog-ok").addEventListener("click", deleteStudents);
 
-// let lsBtnEdit = document.querySelectorAll(".btn-edit");
-// for (let i = 0; i < lsBtnEdit.length; i++)
-// {
-//     lsBtnEdit[i].addEventListener("click", showModalEdit);
-// }
+// table
+document.getElementById("main-checkbox").addEventListener("change", changeMainCheckBox);
+
 
 function showModalAdd()
 {
     document.getElementById("modal-title").innerText = "Add student";
-    document.getElementById("btn-apply").innerText = "Create";
+    document.getElementById("modal-apply").innerText = "Create";
 
-    document.getElementById("btn-apply").removeEventListener("click", addStudent);
-    document.getElementById("btn-apply").addEventListener("click", addStudent);
+    document.getElementById("modal-apply").removeEventListener("click", addStudent);
+    document.getElementById("modal-apply").addEventListener("click", addStudent);
 
     document.getElementById("modal").style.display = "block";
 }
@@ -30,9 +26,11 @@ function showModalAdd()
 function showModalEdit()
 {
     document.getElementById("modal-title").innerText = "Edit student";
-    document.getElementById("btn-apply").innerText = "Save";
-    document.getElementById("btn-apply").removeEventListener("click", addStudent);
-    // Обробник для зміни даних про студента
+    document.getElementById("modal-apply").innerText = "Save";
+
+    document.getElementById("modal-apply").removeEventListener("click", addStudent);
+    // in future addEventListener to editStudent
+
     document.getElementById("modal").style.display = "block";
 }
 
@@ -48,6 +46,7 @@ function clearForm()
     document.getElementById("last-name").value = "";
     document.getElementById("birthday").value = "";
 }
+
 
 function addStudent()
 {
@@ -133,8 +132,8 @@ function changeMainCheckBox()
 function showDialogDel()
 {
     let strUsernames = "";
-    const lsRows = document.getElementsByTagName("tr");
-    for (let i = 1; i < lsRows.length; i++)
+    const lsRows = document.querySelectorAll("tbody tr");
+    for (let i = 0; i < lsRows.length; i++)
     {
         if (lsRows[i].querySelector("td input[type='checkbox']").checked)
         {
@@ -146,7 +145,7 @@ function showDialogDel()
     {
         strUsernames = strUsernames.slice(0, -2);
         document.getElementById("dialog").style.display = "block";
-        document.getElementById("dialog-username").innerText = strUsernames;
+        document.getElementById("dialog-usernames").innerText = strUsernames;
     }
     else
     {
@@ -161,16 +160,12 @@ function closeDialogDel()
 
 function deleteStudents()
 {
-    const lsRows = document.getElementsByTagName("tr");
-    for (let i = 1; i < lsRows.length;)
+    const lsRows = document.querySelectorAll("tbody tr");
+    for (let i = lsRows.length - 1; i >= 0; i--)
     {
         if (lsRows[i].querySelector("td input[type='checkbox']").checked)
         {
             lsRows[i].remove();
-        }
-        else
-        {
-            i++;
         }
     }
     closeDialogDel();

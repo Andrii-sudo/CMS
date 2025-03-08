@@ -44,28 +44,11 @@ header
     margin: 0 0 0 13px;
 }
 
-@keyframes bellAnimation
+#dropdown-notify
 {
-    0%
-    {
-        transform: rotate(0);
-    }
-    20%
-    {
-        transform: rotate(45deg);
-    }
-    40%
-    {
-        transform: rotate(-45deg);
-    }
-    75%
-    {
-        transform: rotate(20deg);
-    }
-    100%
-    {
-        transform: rotate(0);
-    }
+    position: relative;
+    display: inline-block;
+    margin: 0 20px 0 0;
 }
 
 #notify-icon
@@ -79,30 +62,6 @@ header
     animation: bellAnimation 2s ease-in-out;
 }
 
-.user-photo
-{
-    height: 37px;
-    border-radius: 50%;
-}
-
-#user-name
-{
-    color: white;
-    margin: 0 25px 0 15px;
-}
-
-#dropdown-notify
-{
-    position: relative;
-    display: inline-block;
-    margin: 0 20px 0 0;
-}
-
-#dropdown-notify:hover #dropdown-notify-content
-{
-    display: block;
-}
-
 #dropdown-notify-content
 {
     display: none;
@@ -114,7 +73,12 @@ header
     padding: 8px 8px 0 0;
 }
 
-.notify-item
+#dropdown-notify:hover #dropdown-notify-content
+{
+    display: block;
+}
+
+.dropdown-notify-item
 {
     display: flex;
     flex-direction: row;
@@ -133,10 +97,10 @@ header
 
 .notify-user-name
 {
-    margin: 5px 0 0 0 ;
+    margin: 5px 0 0 0;
 }
 
-.notify-message
+.dropdown-notify-message
 {
     height: 20px;
     width: 180px;
@@ -150,9 +114,30 @@ header
     margin: 5px 0 0 0;
     padding: 7px;
 
-    white-space: nowrap;
+    white-space: nowrap; /* Без переносу на новий рядок */
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+@keyframes bellAnimation
+{
+    0%   { transform: rotate(0);      }
+    20%  { transform: rotate(45deg);  }
+    40%  { transform: rotate(-45deg); }
+    75%  { transform: rotate(20deg);  }
+    100% { transform: rotate(0);      }
+}
+
+.user-photo
+{
+    height: 37px;
+    border-radius: 50%;
+}
+
+#user-name
+{
+    color: white;
+    margin: 0 25px 0 15px;
 }
 
 #dropdown-profile
