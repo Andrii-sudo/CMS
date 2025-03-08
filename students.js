@@ -44,7 +44,6 @@ function closeModal()
 
 function clearForm()
 {
-    document.getElementById("group").value = "";
     document.getElementById("first-name").value = "";
     document.getElementById("last-name").value = "";
     document.getElementById("birthday").value = "";
@@ -57,6 +56,12 @@ function addStudent()
     const lastName  = document.getElementById("last-name").value;
     const gender    = document.getElementById("gender").value;
     const birthday  = document.getElementById("birthday").value;
+
+    if (!group || !firstName || !lastName || !gender || !birthday )
+    {
+        alert("Please fill all fields");
+        return;
+    }
 
     closeModal();
 
@@ -133,12 +138,13 @@ function showDialogDel()
     {
         if (lsRows[i].querySelector("td input[type='checkbox']").checked)
         {
-            strUsernames += lsRows[i].querySelectorAll("td")[2].innerText + " ";
+            strUsernames += lsRows[i].querySelectorAll("td")[2].innerText + ", ";
         }
     }
 
     if (strUsernames !== "")
     {
+        strUsernames = strUsernames.slice(0, -2);
         document.getElementById("dialog").style.display = "block";
         document.getElementById("dialog-username").innerText = strUsernames;
     }
