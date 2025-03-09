@@ -20,9 +20,12 @@
 
         <div class="header-section">
             <div id="dropdown-notify">
-                <a href="./messages.html">
-                    <i class="fa-regular fa-bell" id="notify-icon"></i>
-                </a>
+                <div id="notify-icon-container">
+                    <a href="./messages.html">
+                        <i class="fa-regular fa-bell" id="notify-icon"></i>
+                    </a>
+                    <span id="notify-indicator"></span>
+                </div>
                 <div id="dropdown-notify-content">
                     <div class="dropdown-notify-item">
                         <div class="notify-user-info">
@@ -168,7 +171,8 @@
         </div>
     </div>
 
-    <script src="scripts/students.js"></script>
+    <script src="scripts/header.js"></script>
     <script src="scripts/navbar.js"></script>
+    <script src="scripts/students.js"></script>
 </body>
 </html>

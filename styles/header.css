@@ -51,6 +51,25 @@ header
     margin: 0 20px 0 0;
 }
 
+#notify-icon-container
+{
+    position: relative;
+}
+
+#notify-indicator
+{
+    position: absolute;
+    background-color: #ae0e0e;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    top: 1px;
+    right: 1px;
+
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
 #notify-icon
 {
     color: white;
