@@ -27,3 +27,43 @@ nav
 {
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
 }
+
+@media screen and (max-width: 350px)
+{
+    nav { width: 75px; }
+    #navbar-list
+    {
+        margin-left: 5px;
+        font-size: 12px;
+    }
+}
+
+@media screen and (min-width: 350px) and (max-width: 500px)
+{
+    nav { width: 100px; }
+    #navbar-list
+    {
+        margin-left: 10px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width: 700px)
+{
+    nav { width: 125px; }
+    #navbar-list
+    {
+        margin-left: 20px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 700px) and (max-width: 900px)
+{
+    nav { width: 150px; }
+    #navbar-list
+    {
+        margin-left: 35px;
+        font-size: 15px;
+    }
+}

@@ -147,8 +147,9 @@ button i
     width: 55%;
     height: 55%;
 
-    min-width: 350px;
+    min-width: 300px;
     min-height: 350px;
+    max-height: 350px;
 
     margin: 0 auto;
 
@@ -188,8 +189,9 @@ button i
     display: grid;
     grid-template-columns: 90px 1fr;
     row-gap: 10px;
-    width: 65%;
-    margin: 0 20% 20px 15%;
+    width: 70%;
+    margin: 0 0 20px 0;
+    padding: 0 15% 0 15%;
     align-items: center;
 }
 
@@ -200,6 +202,9 @@ button i
 {
     font-size: 16px;
     padding: 3px;
+
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .modal-footer,
@@ -212,6 +217,7 @@ button i
     border-top: 1px solid rgb(100, 100, 100);
 
     height: 50px;
+    max-height: 50px;
 }
 
 .modal-footer button,
@@ -230,6 +236,7 @@ button i
 
     min-width: 300px;
     min-height: 280px;
+    max-height: 300px;
 
     margin: 0 auto;
 
@@ -251,5 +258,143 @@ button i
     font-size: 18px;
     font-weight: bold;
 
-    margin: 0 10% 0 10%;
+    margin: 0 10% 15px 10%;
+}
+
+@media screen and (max-width: 350px)
+{
+    main
+    {
+        left: 75px;
+        width: calc(100% - 75px);
+    }
+
+    th, td
+    {
+        font-size: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    input[type="checkbox"]
+    {
+        height: 12px;
+        width: 12px;
+    }
+
+    td span
+    {
+        width: 13px;
+        height: 13px;
+    }
+
+    #pagination-container button,
+    td button i
+    {
+        font-size: 12px;
+    }
+
+    .modal-body
+    {
+        width: 90%;
+        padding-right: 5%;
+        padding-left: 5%;
+    }
+}
+
+@media screen and (min-width: 350px) and (max-width: 500px)
+{
+    main
+    {
+        left: 100px;
+        width: calc(100% - 100px);
+    }
+
+    th, td
+    {
+        font-size: 11px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+    }
+
+    input[type="checkbox"]
+    {
+        height: 15px;
+        width: 15px;
+    }
+
+    td span
+    {
+        width: 15px;
+        height: 15px;
+    }
+
+    #pagination-container button,
+    td button i
+    {
+        font-size: 14px;
+    }
+
+    .modal-body
+    {
+        width: 90%;
+        padding-right: 5%;
+        padding-left: 5%;
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width: 700px)
+{
+    main
+    {
+        left: 125px;
+        width: calc(100% - 125px);
+    }
+
+    th, td
+    {
+        font-size: 13px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    input[type="checkbox"]
+    {
+        height: 18px;
+        width: 18px;
+    }
+
+    td span
+    {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+@media screen and (min-width: 700px) and (max-width: 900px)
+{
+    main
+    {
+        left: 150px;
+        width: calc(100% - 150px);
+    }
+
+    th, td
+    {
+        font-size: 14px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    input[type="checkbox"]
+    {
+        height: 19px;
+        width: 19px;
+    }
+
+    td span
+    {
+        width: 18px;
+        height: 18px;
+    }
 }

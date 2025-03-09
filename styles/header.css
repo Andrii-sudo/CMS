@@ -20,7 +20,7 @@ header
     right: 0;
     left: 0;
 
-    z-index: 1;
+    z-index: 2;
 
     display: flex;
     flex-direction: row;
@@ -156,7 +156,7 @@ header
 #user-name
 {
     color: white;
-    margin: 0 25px 0 15px;
+    margin: 0 0 0 15px;
 }
 
 #dropdown-profile
@@ -164,6 +164,7 @@ header
     display: flex;
     justify-content: start;
     align-items: center;
+    margin: 0 25px 0 0;
 }
 
 #dropdown-profile-content
@@ -190,4 +191,20 @@ header
 #dropdown-profile-content a:hover
 {
     background-color: rgb(245, 245, 245);
+}
+
+@media screen and (max-width: 350px)
+{
+    #user-name { display: none; }
+    #dropdown-profile { margin: 0 10px 0 0; }
+
+    #dropdown-notify:hover #dropdown-notify-content
+    {
+        display: none;
+    }
+
+    #dropdown-profile:hover #dropdown-profile-content
+    {
+        display: none;
+    }
 }
