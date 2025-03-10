@@ -2,13 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CMS &#183 Students</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+          content="Student management CMS: view, add, edit, and filter student data. Simple
+                   and user-friendly interface for efficient educational process management">
+
+    <title>CMS &#183; Students</title>
 
     <link rel="stylesheet" href="styles/header.css">
+
     <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/students.css">
+    <link rel="stylesheet" href="styles/all.min.css">
 
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!--
+    <link rel="preload" href="styles/students.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="styles/navbar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="styles/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    -->
 </head>
 <body>
     <header>
@@ -21,7 +32,7 @@
         <div class="header-section">
             <div id="dropdown-notify">
                 <div id="notify-icon-container">
-                    <a href="./messages.html">
+                    <a href="./messages.html" aria-label="Messages">
                         <i class="fa-regular fa-bell" id="notify-icon"></i>
                     </a>
                     <span id="notify-indicator"></span>
@@ -29,7 +40,7 @@
                 <div id="dropdown-notify-content">
                     <div class="dropdown-notify-item">
                         <div class="notify-user-info">
-                            <img src="images/userPhoto.png" alt="user photo" class="user-photo">
+                            <img src="images/userPhoto.webp" alt="user photo" class="user-photo">
                             <p class="notify-user-name">Admin</p>
                         </div>
                         <p class="dropdown-notify-message">
@@ -39,7 +50,7 @@
 
                     <div class="dropdown-notify-item">
                         <div class="notify-user-info">
-                            <img src="images/userPhoto.png" alt="user photo" class="user-photo">
+                            <img src="images/userPhoto.webp" alt="user photo" class="user-photo">
                             <p class="notify-user-name">Admin</p>
                         </div>
                         <p class="dropdown-notify-message">
@@ -49,7 +60,7 @@
 
                     <div class="dropdown-notify-item">
                         <div class="notify-user-info">
-                            <img src="images/userPhoto.png" alt="user photo" class="user-photo">
+                            <img src="images/userPhoto.webp" alt="user photo" class="user-photo">
                             <p class="notify-user-name">Admin</p>
                         </div>
                         <p class="dropdown-notify-message">
@@ -60,7 +71,7 @@
             </div>
 
             <div id="dropdown-profile">
-                <img src="images/myPhoto.jpg" alt="user photo" class="user-photo">
+                <img src="images/myPhoto.webp" width="37" height="37" alt="user photo" class="user-photo">
                 <p id="user-name">
                     Andrii Kityk
                 </p>
@@ -88,7 +99,7 @@
 
     <main>
         <h2>Students</h2>
-        <button id="btn-add">
+        <button id="btn-add" aria-label="Add student">
             <i class="fa-solid fa-plus"></i>
         </button>
         <div id="table-container">
@@ -96,7 +107,7 @@
                 <thead>
                     <tr>
                         <th class="col1">
-                            <input type="checkbox" id="main-checkbox">
+                            <input type="checkbox" id="main-checkbox" aria-label="Select all students">
                         </th>
                         <th class="col2">Group</th>
                         <th class="col3">Name</th>
@@ -110,19 +121,19 @@
             </table>
         </div>
         <div id="pagination-container">
-            <button>&lt</button>
+            <button>&lt;</button>
             <button>1</button>
             <button>2</button>
             <button>3</button>
             <button>4</button>
-            <button>&gt</button>
+            <button>&gt;</button>
         </div>
     </main>
 
     <div id="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 id="modal-title"></h3>
+                <h3 id="modal-title">Add Student</h3>
                 <button id="modal-close">
                     <i class="fa-solid fa-xmark"></i>
                 </button>

@@ -101,8 +101,6 @@ header
 {
     display: flex;
     flex-direction: row;
-    justify-content: start;
-    align-items: start;
     height: 60px;
     margin: 0 0 10px 0;
 }
@@ -121,8 +119,8 @@ header
 
 .dropdown-notify-message
 {
-    height: 20px;
-    width: 180px;
+    height: 34px;
+    width: 194px;
     font-size: 14px;
 
     color: white;
@@ -132,6 +130,8 @@ header
 
     margin: 5px 0 0 0;
     padding: 7px;
+
+    box-sizing: border-box;
 
     white-space: nowrap; /* Без переносу на новий рядок */
     overflow: hidden;
@@ -162,7 +162,6 @@ header
 #dropdown-profile
 {
     display: flex;
-    justify-content: start;
     align-items: center;
     margin: 0 25px 0 0;
 }
