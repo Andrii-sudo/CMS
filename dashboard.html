@@ -2,30 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>CMS &#183 Dashboard</title>
 
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/navbar.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/all.min.css">
 </head>
 <body>
     <header>
         <div class="header-section">
             <a href="./students.html">
-                <h1 id="logo">CMS</h1>
+                <h1>CMS</h1>
             </a>
         </div>
 
         <div class="header-section">
-            <div id="dropdown-notify">
-                <div id="notify-icon-container">
-                    <a href="./messages.html">
+            <div class="dropdown-notify">
+                <div class="notify-icon-container">
+                    <a href="./messages.html" aria-label="Messages">
                         <i class="fa-regular fa-bell" id="notify-icon"></i>
                     </a>
                     <span id="notify-indicator"></span>
                 </div>
-                <div id="dropdown-notify-content">
+                <div class="dropdown-notify-content">
                     <div class="dropdown-notify-item">
                         <div class="notify-user-info">
                             <img src="images/userPhoto.webp" alt="user photo" class="user-photo">
@@ -58,12 +60,12 @@
                 </div>
             </div>
 
-            <div id="dropdown-profile">
-                <img src="images/myPhoto.webp" alt="user photo" class="user-photo">
-                <p id="user-name">
+            <div class="dropdown-profile">
+                <img src="images/myPhoto.webp" width="37" height="37" alt="user photo" class="user-photo">
+                <p class="user-name">
                     Andrii Kityk
                 </p>
-                <div id="dropdown-profile-content">
+                <div class="dropdown-profile-content">
                     <a href="#">Profile</a>
                     <a href="#">Log Out</a>
                 </div>

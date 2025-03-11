@@ -7,32 +7,47 @@ main
     width: calc(100% - 200px);
 }
 
-button
+h2
 {
-    background-color: transparent;
-    border: 1px solid rgb(155, 155, 155);
-    border-radius: 2px;
-    cursor: pointer;
-    padding: 0;
-}
+    color: white;
 
-button:hover
-{
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
-}
-
-main h2
-{
     margin: 20px 0 0 5% ;
     font-weight: 500;
 }
 
-#btn-add
+.btn-square
 {
-    width: 25px;
-    height: 25px;
-    margin: 10px 0 10px calc(95% - 25px);
-    padding-top: 2px;
+    background-color: #1f2937;
+    color: #9ca3af;
+    border: 1px solid #4b5563;
+    border-radius: 7px;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-square i
+{
+    display: inline-block;
+    font-size: 15px;
+    margin: 0 auto;
+}
+
+.btn-square:hover
+{
+    background-color: #374151;
+    color: white;
+}
+
+main button
+{
+    margin: 15px 0 15px calc(95% - 35px);
+    width: 35px;
+    height: 35px;
 }
 
 #table-container
@@ -43,17 +58,10 @@ main h2
     margin: 0 auto;
 }
 
-table, tr, th, td
-{
-    border: 1px solid rgb(155, 155, 155);
-    border-collapse: collapse;
-    text-align: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
-
 table
 {
+    border-collapse: separate;
+    border-spacing: 0;
     width: 100%;
 }
 
@@ -65,13 +73,53 @@ table
 .col6 { width: 5%;  }
 .col7 { width: 10%; }
 
+tr, th, td
+{
+    border: 1px solid #374151;
+
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+thead tr:first-child th:first-child
+{
+    border-top-left-radius: 10px;
+}
+thead tr:first-child th:last-child
+{
+    border-top-right-radius: 10px;
+}
+tbody tr:last-child td:first-child
+{
+    border-bottom-left-radius: 10px;
+}
+tbody tr:last-child td:last-child
+{
+    border-bottom-right-radius: 10px;
+}
+
+tr:hover td, tr:hover button
+{
+    background-color: #4B5563;
+    border-left: none;
+    border-right: none;
+}
+
 th
 {
-    font-size: 14px;
+    background-color: #374151;
+    color: #d2d9e6;
+}
+td
+{
+    background-color: #1f2937;
+    color: #9ca3af;
 }
 
 input[type="checkbox"]
 {
+    opacity: 0.8;
     height: 20px;
     width: 20px;
 }
@@ -84,28 +132,14 @@ td span
     border-radius: 50%;
 }
 
-.green
-{
-    background-color: #00aa50;
-}
+.green { background-color: #00aa50;   }
+.gray  { background-color: lightgray; }
 
-.gray
+td .btn-square
 {
-    background-color: lightgray;
-}
-
-td button
-{
-    width: 25px;
-    padding: 3px 0 0 0;
-    margin-right: 4px;
-}
-
-button i
-{
-    display: inline-block;
-    font-size: 15px;
-    margin: 0 auto;
+    width: 30px;
+    height: 30px;
+    margin: 0 4px 0 0;
 }
 
 #pagination-container
@@ -119,7 +153,6 @@ button i
 #pagination-container button
 {
     font-size: 16px;
-    padding: 3px 8px;
     margin: 15px 2px;
 }
 
@@ -138,22 +171,25 @@ button i
     z-index: 2;
 
     padding-top: 100px;
+    animation: slideIn 0.4s;
 }
 
-.modal-content
+@keyframes slideIn
 {
-    background-color: white;
+    from { padding-top: 0; opacity: 0; }
+    to { padding-top: 100px; opacity: 1;}
+}
+
+.modal-content,
+.dialog-content
+{
+    display: flex;
+    flex-direction: column;
+    background-color: #374151;
 
     width: 55%;
-    height: 55%;
-
     min-width: 300px;
-    min-height: 350px;
-    max-height: 350px;
-
     margin: 0 auto;
-
-    border: 2px solid rgb(100, 100, 100);
     border-radius: 10px;
 }
 
@@ -165,23 +201,38 @@ button i
     justify-content: space-between;
     align-items: center;
 
-    border-bottom: 1px solid rgb(155, 155, 155);
-    margin: 0 0 20px 0;
-    padding: 30px 10px 20px 20px;
+    border-bottom: 1px solid #4b5563;
+    padding: 15px 15px 20px 20px;
 }
 
-.modal-header h3,
-.dialog-header h3
+h3
 {
     display: inline-block;
+    color: white;
     margin: 0;
 }
 
-#modal-close,
-#dialog-close
+.modal-header .btn-square,
+.dialog-header .btn-square
 {
-    width: 25px;
-    padding: 3px 0 0 0;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+
+    border: none;
+    padding: 0;
+}
+
+.modal-header .btn-square i,
+.dialog-header .btn-square i
+{
+    font-size: 19px;
+}
+
+.modal-header .btn-square:hover,
+.dialog-header .btn-square:hover
+{
+    background-color: #4b5563;
 }
 
 .modal-body
@@ -189,22 +240,37 @@ button i
     display: grid;
     grid-template-columns: 90px 1fr;
     row-gap: 10px;
+
     width: 70%;
-    margin: 0 0 20px 0;
-    padding: 0 15% 0 15%;
+    padding: 20px 15%;
     align-items: center;
+}
+
+.modal-body label
+{
+    color: white;
+    font-size: 16px;
 }
 
 .modal-body select,
 .modal-body input[type="text"],
-.modal-body input[type="date"],
-.modal-body label
+.modal-body input[type="date"]
 {
-    font-size: 16px;
-    padding: 3px;
+    background-color: #4B5563;
+    color: white;
+    border: 1px solid #6B7280;
 
+    font-size: 16px;
+    padding: 10px;
     width: 100%;
+    border-radius: 8px;
     box-sizing: border-box;
+}
+
+.modal-body input[type="text"]:focus,
+.modal-body input[type="date"]:focus
+{
+    outline: 1px solid #3b82f6;
 }
 
 .modal-footer,
@@ -214,34 +280,48 @@ button i
     flex-direction: row;
     justify-content: end;
     align-items: center;
-    border-top: 1px solid rgb(100, 100, 100);
-
-    height: 50px;
-    max-height: 50px;
+    border-top: 1px solid #4b5563;
+    padding: 15px 0;
 }
 
 .modal-footer button,
 .dialog-footer button
 {
-    padding: 5px;
+    font-size: 16px;
+    padding: 10px 20px;
     margin: 0 10px 0 0;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
-#dialog-content
+.btn-cancel
 {
-    background-color: white;
+    background-color: #1f2937;
+    color: #9ca3af;
+    border: 1px solid #4b5563;
+}
 
-    width: 40%;
-    height: 45%;
+.btn-cancel:hover
+{
+    background-color: transparent;
+    color: white;
+}
 
-    min-width: 300px;
-    min-height: 280px;
-    max-height: 300px;
+.btn-perform
+{
+    background-color: #2563eb;
+    color: white;
+    border: none;
+}
 
-    margin: 0 auto;
+.btn-perform:hover
+{
+    background-color: #1d4ed8;
+}
 
-    border: 2px solid rgb(100, 100, 100);
-    border-radius: 10px;
+.dialog-content
+{
+    width: 45%;
 }
 
 .dialog-body
@@ -249,16 +329,27 @@ button i
     display: flex;
     flex-direction: row;
     align-items: center;
-
-    height: 45%;
+    padding: 25px 0 25px 15%;
 }
 
 .dialog-body p
 {
+    color: #9ca3af;
     font-size: 18px;
     font-weight: bold;
+    margin: 0;
+}
 
-    margin: 0 10% 15px 10%;
+.btn-critical
+{
+    background-color: #dc2626;
+    color: white;
+    border: none;
+}
+
+.btn-critical:hover
+{
+    background-color: #991b1b;
 }
 
 @media screen and (max-width: 350px)
@@ -269,23 +360,31 @@ button i
         width: calc(100% - 75px);
     }
 
+    main .btn-square
+    {
+        margin: 15px 0 15px calc(95% - 20px);
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+    }
+
     th, td
     {
-        font-size: 10px;
+        font-size: 8px;
         padding-top: 5px;
         padding-bottom: 5px;
     }
 
     input[type="checkbox"]
     {
-        height: 12px;
-        width: 12px;
+        height: 9px;
+        width: 9px;
     }
 
     td span
     {
-        width: 13px;
-        height: 13px;
+        width: 9px;
+        height: 9px;
     }
 
     #pagination-container button,
@@ -300,6 +399,19 @@ button i
         padding-right: 5%;
         padding-left: 5%;
     }
+
+    td .btn-square
+    {
+        width: 15px;
+        height: 15px;
+        border-radius: 4px;
+        margin: 0 1px 0 0;
+    }
+
+    td .btn-square i
+    {
+        font-size: 8px;
+    }
 }
 
 @media screen and (min-width: 350px) and (max-width: 500px)
@@ -310,23 +422,31 @@ button i
         width: calc(100% - 100px);
     }
 
+    main .btn-square
+    {
+        margin: 15px 0 15px calc(95% - 25px);
+        width: 25px;
+        height: 25px;
+        border-radius: 5px;
+    }
+
     th, td
     {
-        font-size: 11px;
+        font-size: 9px;
         padding-top: 7px;
         padding-bottom: 7px;
     }
 
     input[type="checkbox"]
     {
-        height: 15px;
-        width: 15px;
+        height: 11px;
+        width: 11px;
     }
 
     td span
     {
-        width: 15px;
-        height: 15px;
+        width: 11px;
+        height: 11px;
     }
 
     #pagination-container button,
@@ -340,6 +460,19 @@ button i
         width: 90%;
         padding-right: 5%;
         padding-left: 5%;
+    }
+
+    td .btn-square
+    {
+        width: 15px;
+        height: 15px;
+        border-radius: 4px;
+        margin: 0 1px 0 0;
+    }
+
+    td .btn-square i
+    {
+        font-size: 8px;
     }
 }
 
@@ -369,6 +502,18 @@ button i
         width: 15px;
         height: 15px;
     }
+
+    td .btn-square
+    {
+        width: 20px;
+        height: 20px;
+        border-radius: 5px;
+    }
+
+    td .btn-square i
+    {
+        font-size: 12px;
+    }
 }
 
 @media screen and (min-width: 700px) and (max-width: 900px)
@@ -396,5 +541,16 @@ button i
     {
         width: 18px;
         height: 18px;
+    }
+
+    td .btn-square
+    {
+        width: 25px;
+        height: 25px;
+    }
+
+    td .btn-square i
+    {
+        font-size: 14px;
     }
 }

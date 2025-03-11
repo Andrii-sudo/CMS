@@ -82,12 +82,14 @@ function addStudent()
 
     const checkBox = document.createElement("input");
     checkBox.type = "checkbox";
+    checkBox.ariaLabel = "Select student";
 
     const status = document.createElement("span");
     status.className = Math.random() < 0.5 ? "green" : "gray";
 
     const optionEdit = document.createElement("button");
-    optionEdit.className = "btn-edit";
+    optionEdit.className = "btn-square";
+    optionEdit.ariaLabel = "Edit student";
     optionEdit.addEventListener("click", showModalEdit);
 
     const iconEdit = document.createElement("i");
@@ -95,7 +97,8 @@ function addStudent()
     optionEdit.appendChild(iconEdit);
 
     const optionDel = document.createElement("button");
-    optionDel.className = "btn-del";
+    optionDel.className = "btn-square";
+    optionDel.ariaLabel = "Remove student";
     optionDel.addEventListener("click", showDialogDel);
 
     const iconDel = document.createElement("i");

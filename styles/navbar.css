@@ -2,36 +2,44 @@ nav
 {
     position: fixed;
     width: 200px;
-    top: 50px;
+
+    top: 51px;
     bottom: 0;
     left: 0;
 
     z-index: 1;
 
-    background-color: rgb(245, 245, 245);
+    background-color: #111827;
+    border-right: 2px #4b5563 solid;
+    box-sizing: border-box;
 }
 
-#navbar-list
+nav ul
 {
     list-style-type: none;
     margin: 50px 0 0 50px;
     padding: 0;
 }
 
-#navbar-list li
+nav ul li a
 {
-    margin: 0 0 18px 0;
+    color: #9ca3af;
+    padding: 9px 0;
+    display: block;
+
+    transition: color 0.2s;
 }
 
-#navbar-list li a:hover
+nav ul li a:hover
 {
+    color: white;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
 }
 
 @media screen and (max-width: 350px)
 {
     nav { width: 75px; }
-    #navbar-list
+    nav ul
     {
         margin-left: 5px;
         font-size: 12px;
@@ -41,7 +49,7 @@ nav
 @media screen and (min-width: 350px) and (max-width: 500px)
 {
     nav { width: 100px; }
-    #navbar-list
+    nav ul
     {
         margin-left: 10px;
         font-size: 14px;
@@ -51,7 +59,7 @@ nav
 @media screen and (min-width: 500px) and (max-width: 700px)
 {
     nav { width: 125px; }
-    #navbar-list
+    nav ul
     {
         margin-left: 20px;
         font-size: 14px;
@@ -61,7 +69,7 @@ nav
 @media screen and (min-width: 700px) and (max-width: 900px)
 {
     nav { width: 150px; }
-    #navbar-list
+    nav ul
     {
         margin-left: 35px;
         font-size: 15px;

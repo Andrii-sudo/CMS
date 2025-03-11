@@ -10,9 +10,9 @@
     <title>CMS &#183; Students</title>
 
     <link rel="stylesheet" href="styles/header.css">
-
     <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/students.css">
+
     <link rel="stylesheet" href="styles/all.min.css">
 
     <!--
@@ -25,19 +25,19 @@
     <header>
         <div class="header-section">
             <a href="./students.html">
-                <h1 id="logo">CMS</h1>
+                <h1>CMS</h1>
             </a>
         </div>
 
         <div class="header-section">
-            <div id="dropdown-notify">
-                <div id="notify-icon-container">
+            <div class="dropdown-notify">
+                <div class="notify-icon-container">
                     <a href="./messages.html" aria-label="Messages">
                         <i class="fa-regular fa-bell" id="notify-icon"></i>
                     </a>
                     <span id="notify-indicator"></span>
                 </div>
-                <div id="dropdown-notify-content">
+                <div class="dropdown-notify-content">
                     <div class="dropdown-notify-item">
                         <div class="notify-user-info">
                             <img src="images/userPhoto.webp" alt="user photo" class="user-photo">
@@ -70,12 +70,12 @@
                 </div>
             </div>
 
-            <div id="dropdown-profile">
+            <div class="dropdown-profile">
                 <img src="images/myPhoto.webp" width="37" height="37" alt="user photo" class="user-photo">
-                <p id="user-name">
+                <p class="user-name">
                     Andrii Kityk
                 </p>
-                <div id="dropdown-profile-content">
+                <div class="dropdown-profile-content">
                     <a href="#">Profile</a>
                     <a href="#">Log Out</a>
                 </div>
@@ -99,14 +99,14 @@
 
     <main>
         <h2>Students</h2>
-        <button id="btn-add" aria-label="Add student">
+        <button id="btn-add" class="btn-square" aria-label="Add student">
             <i class="fa-solid fa-plus"></i>
         </button>
         <div id="table-container">
             <table>
                 <thead>
                     <tr>
-                        <th class="col1">
+                        <th class="col1" aria-label="Select all students">
                             <input type="checkbox" id="main-checkbox" aria-label="Select all students">
                         </th>
                         <th class="col2">Group</th>
@@ -121,12 +121,12 @@
             </table>
         </div>
         <div id="pagination-container">
-            <button>&lt;</button>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>4</button>
-            <button>&gt;</button>
+            <button class="btn-square">&lt;</button>
+            <button class="btn-square">1</button>
+            <button class="btn-square">2</button>
+            <button class="btn-square">3</button>
+            <button class="btn-square">4</button>
+            <button class="btn-square">&gt;</button>
         </div>
     </main>
 
@@ -134,7 +134,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h3 id="modal-title">Add Student</h3>
-                <button id="modal-close">
+                <button id="modal-close" class="btn-square" aria-label="Close">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
@@ -162,17 +162,17 @@
             </div>
 
             <div class="modal-footer">
-                <button id="modal-cancel">Cancel</button>
-                <button id="modal-apply"></button>
+                <button id="modal-cancel" class="btn-cancel">Cancel</button>
+                <button id="modal-apply"  class="btn-perform">Create</button>
             </div>
         </div>
     </div>
 
     <div id="dialog">
-        <div id="dialog-content">
+        <div class="dialog-content">
             <div class="dialog-header">
                 <h3>Warning</h3>
-                <button id="dialog-close">
+                <button id="dialog-close" class="btn-square" aria-label="Close">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
@@ -184,8 +184,8 @@
             </div>
 
             <div class="dialog-footer">
-                <button id="dialog-cancel">Cancel</button>
-                <button id="dialog-ok">Ok</button>
+                <button id="dialog-cancel" class="btn-cancel">Cancel</button>
+                <button id="dialog-ok" class="btn-critical">Ok</button>
             </div>
         </div>
     </div>
