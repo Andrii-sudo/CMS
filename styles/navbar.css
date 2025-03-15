@@ -12,6 +12,20 @@ nav
     background-color: #111827;
     border-right: 2px #4b5563 solid;
     box-sizing: border-box;
+    animation: navAnim 0.4s;
+}
+
+@keyframes navAnim {
+    from
+    {
+        left: -150px;
+        opacity: 0;
+    }
+    to
+    {
+        left: 0;
+        opacity: 1;
+    }
 }
 
 nav ul
@@ -38,27 +52,28 @@ nav ul li a:hover
 
 @media screen and (max-width: 350px)
 {
-    nav { width: 75px; }
+    nav
+    {
+        display: none;
+        position: fixed;
+        width: 125px;
+    }
     nav ul
     {
-        margin-left: 5px;
+        margin-left: 20px;
         font-size: 12px;
     }
 }
 
-@media screen and (min-width: 350px) and (max-width: 500px)
-{
-    nav { width: 100px; }
-    nav ul
-    {
-        margin-left: 10px;
-        font-size: 14px;
-    }
-}
 
-@media screen and (min-width: 500px) and (max-width: 700px)
+@media screen and (min-width: 350px) and (max-width: 700px)
 {
-    nav { width: 125px; }
+    nav
+    {
+        display: none;
+        position: fixed;
+        width: 150px;
+    }
     nav ul
     {
         margin-left: 20px;

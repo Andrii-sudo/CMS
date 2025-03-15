@@ -39,6 +39,31 @@ header
     align-items: center;
 }
 
+.burger-menu
+{
+    display: none;
+    background-color: transparent;
+    border: none;
+
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+
+    margin: 0 0 0 10px;
+    cursor: pointer;
+}
+
+.burger-menu:hover
+{
+    background-color: #374151;
+}
+
+.burger-menu i
+{
+    color: white;
+    font-size: 22px;
+}
+
 h1
 {
     color: white;
@@ -220,5 +245,13 @@ h1
     .dropdown-profile:hover .dropdown-profile-content
     {
         display: none;
+    }
+}
+
+@media screen and (max-width: 700px)
+{
+    .burger-menu
+    {
+        display: block;
     }
 }
