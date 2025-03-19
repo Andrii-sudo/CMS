@@ -2,9 +2,95 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>CMS &#183 Dashboard</title>
+
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+
+    <link rel="stylesheet" href="styles/all.min.css">
 </head>
 <body>
+    <header>
+        <div class="header-section">
+            <button class="burger-menu" id="burger-menu-show" aria-label="Burger menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <a href="./students.html">
+                <h1>CMS</h1>
+            </a>
+        </div>
 
+        <div class="header-section">
+            <div class="dropdown-notify">
+                <div class="notify-icon-container">
+                    <a href="./messages.html" aria-label="Messages">
+                        <i class="fa-regular fa-bell" id="notify-icon"></i>
+                    </a>
+                    <span id="notify-indicator"></span>
+                </div>
+                <div class="dropdown-notify-content">
+                    <div class="dropdown-notify-item">
+                        <div class="notify-user-info">
+                            <img src="images/userPhoto.webp" alt="user photo" class="user-photo">
+                            <p class="notify-user-name">Admin</p>
+                        </div>
+                        <p class="dropdown-notify-message">
+                            The sun rises softly over the misty mountains
+                        </p>
+                    </div>
+
+                    <div class="dropdown-notify-item">
+                        <div class="notify-user-info">
+                            <img src="images/userPhoto.webp" alt="user photo" class="user-photo">
+                            <p class="notify-user-name">Admin</p>
+                        </div>
+                        <p class="dropdown-notify-message">
+                            Jack finished his coffee and grabbed his keys
+                        </p>
+                    </div>
+
+                    <div class="dropdown-notify-item">
+                        <div class="notify-user-info">
+                            <img src="images/userPhoto.webp" alt="user photo" class="user-photo">
+                            <p class="notify-user-name">Admin</p>
+                        </div>
+                        <p class="dropdown-notify-message">
+                            Summer breeze whispers through the open window
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dropdown-profile">
+                <img src="images/myPhoto.webp" width="37" height="37" alt="user photo" class="user-photo">
+                <p class="user-name">
+                    Andrii Kityk
+                </p>
+                <div class="dropdown-profile-content">
+                    <a href="#">Profile</a>
+                    <a href="#">Log Out</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul id="navbar-list">
+            <li>
+                <a href="./dashboard.html">Dashboard</a>
+            </li>
+            <li>
+                <a href="./students.html">Students</a>
+            </li>
+            <li>
+                <a href="./tasks.html">Tasks</a>
+            </li>
+        </ul>
+    </nav>
+
+    <script src="scripts/header.js"></script>
+    <script src="scripts/navbar.js"></script>
 </body>
 </html>

@@ -2,62 +2,77 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="students.css">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+          content="Student management CMS: view, add, edit, and filter student data. Simple
+                   and user-friendly interface for efficient educational process management">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>CMS &#183; Students</title>
+
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/students.css">
+
+    <link rel="stylesheet" href="styles/all.min.css">
 </head>
 <body>
     <header>
         <div class="header-section">
+            <button class="burger-menu" id="burger-menu-show" aria-label="Burger menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
             <a href="./students.html">
-                <h1 id="logo">CMS</h1>
+                <h1>CMS</h1>
             </a>
         </div>
+
         <div class="header-section">
-            <div id="dropdown-notify">
-                <a href="./messages.html" id="notify-link">
-                    <i class="fa-regular fa-bell" id="notify-icon"></i>
-                </a>
-                <div id="dropdown-notify-content">
-                    <div class="notify-item">
+            <div class="dropdown-notify">
+                <div class="notify-icon-container">
+                    <a href="./messages.html" aria-label="Messages">
+                        <i class="fa-regular fa-bell" id="notify-icon"></i>
+                    </a>
+                    <span id="notify-indicator"></span>
+                </div>
+                <div class="dropdown-notify-content">
+                    <div class="dropdown-notify-item">
                         <div class="notify-user-info">
-                            <img src="images/userPhoto.png" alt="user photo" class="user-photo">
+                            <img src="images/userPhoto.webp" alt="user photo" class="user-photo">
                             <p class="notify-user-name">Admin</p>
                         </div>
-                        <p class="notify-message">
+                        <p class="dropdown-notify-message">
                             The sun rises softly over the misty mountains
                         </p>
                     </div>
-                    <div class="notify-item">
+
+                    <div class="dropdown-notify-item">
                         <div class="notify-user-info">
-                            <img src="images/userPhoto.png" alt="user photo" class="user-photo">
+                            <img src="images/userPhoto.webp" alt="user photo" class="user-photo">
                             <p class="notify-user-name">Admin</p>
                         </div>
-                        <p class="notify-message">
+                        <p class="dropdown-notify-message">
                             Jack finished his coffee and grabbed his keys
                         </p>
                     </div>
-                    <div class="notify-item">
+
+                    <div class="dropdown-notify-item">
                         <div class="notify-user-info">
-                            <img src="images/userPhoto.png" alt="user photo" class="user-photo">
+                            <img src="images/userPhoto.webp" alt="user photo" class="user-photo">
                             <p class="notify-user-name">Admin</p>
                         </div>
-                        <p class="notify-message">
+                        <p class="dropdown-notify-message">
                             Summer breeze whispers through the open window
                         </p>
                     </div>
                 </div>
             </div>
 
-            <div id="dropdown-profile">
-                <img src="images/myPhoto.jpg" alt="user photo" class="user-photo">
-                <p id="user-name">
+            <div class="dropdown-profile">
+                <img src="images/myPhoto.webp" width="37" height="37" alt="user photo" class="user-photo">
+                <p class="user-name">
                     Andrii Kityk
                 </p>
-                <div id="dropdown-profile-content">
+                <div class="dropdown-profile-content">
                     <a href="#">Profile</a>
                     <a href="#">Log Out</a>
                 </div>
@@ -81,185 +96,99 @@
 
     <main>
         <h2>Students</h2>
-        <button id="btn-add">
+        <button id="btn-add" class="btn-square" aria-label="Add student">
             <i class="fa-solid fa-plus"></i>
         </button>
         <div id="table-container">
             <table>
-                <tr>
-                    <th class="col1">
-                        <input type="checkbox">
-                    </th>
-                    <th class="col2">Group</th>
-                    <th class="col3">Name</th>
-                    <th class="col4">Gender</th>
-                    <th class="col5">Birthday</th>
-                    <th class="col6">Status</th>
-                    <th class="col7">Options</th>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="checkbox">
-                    </td>
-                    <td>KN-21</td>
-                    <td>John Smith</td>
-                    <td>M</td>
-                    <td>11.05.2004</td>
-                    <td>
-                        <span class="green"></span>
-                    </td>
-                    <td>
-                        <button>
-                            <i class="fa-solid fa-pencil"></i>
-                        </button>
-                        <button>
-                            <i class="fa-solid fa-xmark"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="checkbox">
-                    </td>
-                    <td>KN-21</td>
-                    <td>John Smith</td>
-                    <td>M</td>
-                    <td>11.05.2004</td>
-                    <td>
-                        <span class="gray"></span>
-                    </td>
-                    <td>
-                        <button>
-                            <i class="fa-solid fa-pencil"></i>
-                        </button>
-                        <button>
-                            <i class="fa-solid fa-xmark"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="checkbox">
-                    </td>
-                    <td>KN-21</td>
-                    <td>John Smith</td>
-                    <td>M</td>
-                    <td>11.05.2004</td>
-                    <td>
-                        <span class="gray"></span>
-                    </td>
-                    <td>
-                        <button>
-                            <i class="fa-solid fa-pencil"></i>
-                        </button>
-                        <button>
-                            <i class="fa-solid fa-xmark"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="checkbox">
-                    </td>
-                    <td>KN-21</td>
-                    <td>John Smith</td>
-                    <td>M</td>
-                    <td>11.05.2004</td>
-                    <td>
-                        <span class="gray"></span>
-                    </td>
-                    <td>
-                        <button>
-                            <i class="fa-solid fa-pencil"></i>
-                        </button>
-                        <button>
-                            <i class="fa-solid fa-xmark"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="checkbox">
-                    </td>
-                    <td>KN-21</td>
-                    <td>John Smith</td>
-                    <td>M</td>
-                    <td>11.05.2004</td>
-                    <td>
-                        <span class="gray"></span>
-                    </td>
-                    <td>
-                        <button>
-                            <i class="fa-solid fa-pencil"></i>
-                        </button>
-                        <button>
-                            <i class="fa-solid fa-xmark"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="checkbox">
-                    </td>
-                    <td>KN-21</td>
-                    <td>John Smith</td>
-                    <td>M</td>
-                    <td>11.05.2004</td>
-                    <td>
-                        <span class="gray"></span>
-                    </td>
-                    <td>
-                        <button>
-                            <i class="fa-solid fa-pencil"></i>
-                        </button>
-                        <button>
-                            <i class="fa-solid fa-xmark"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="checkbox">
-                    </td>
-                    <td>KN-21</td>
-                    <td>John Smith</td>
-                    <td>M</td>
-                    <td>11.05.2004</td>
-                    <td>
-                        <span class="gray"></span>
-                    </td>
-                    <td>
-                        <button>
-                            <i class="fa-solid fa-pencil"></i>
-                        </button>
-                        <button>
-                            <i class="fa-solid fa-xmark"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="checkbox">
-                    </td>
-                    <td>KN-21</td>
-                    <td>John Smith</td>
-                    <td>M</td>
-                    <td>11.05.2004</td>
-                    <td>
-                        <span class="gray"></span>
-                    </td>
-                    <td>
-                        <button>
-                            <i class="fa-solid fa-pencil"></i>
-                        </button>
-                        <button>
-                            <i class="fa-solid fa-xmark"></i>
-                        </button>
-                    </td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th class="col1" aria-label="Select all students">
+                            <input type="checkbox" id="main-checkbox" aria-label="Select all students">
+                        </th>
+                        <th class="col2">Group</th>
+                        <th class="col3">Name</th>
+                        <th class="col4">Gender</th>
+                        <th class="col5">Birthday</th>
+                        <th class="col6">Status</th>
+                        <th class="col7">Options</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
             </table>
+        </div>
+        <div id="pagination-container">
+            <button class="btn-square">&lt;</button>
+            <button class="btn-square">1</button>
+            <button class="btn-square">2</button>
+            <button class="btn-square">3</button>
+            <button class="btn-square">4</button>
+            <button class="btn-square">&gt;</button>
         </div>
     </main>
 
+    <div id="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Add Student</h3>
+                <button id="modal-close" class="btn-square" aria-label="Close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <label for="group">Group</label>
+                <select id="group">
+                    <option value="PZ-21">PZ-21</option>
+                </select>
+
+                <label for="first-name">First name</label>
+                <input type="text" id="first-name">
+
+                <label for="last-name">Last name</label>
+                <input type="text" id="last-name">
+
+                <label for="gender">Gender</label>
+                <select id="gender">
+                    <option value="M">M</option>
+                    <option value="F">F</option>
+                </select>
+
+                <label for="birthday">Birthday</label>
+                <input type="date" id="birthday">
+            </div>
+
+            <div class="modal-footer">
+                <button id="modal-cancel" class="btn-cancel">Cancel</button>
+                <button id="modal-apply"  class="btn-perform">Create</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="dialog">
+        <div class="dialog-content">
+            <div class="dialog-header">
+                <h3>Warning</h3>
+                <button id="dialog-close" class="btn-square" aria-label="Close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="dialog-body">
+                <p id="dialog-message">
+                    Are you sure you want to delete user(s): <span id="dialog-usernames"></span>?
+                </p>
+            </div>
+
+            <div class="dialog-footer">
+                <button id="dialog-cancel" class="btn-cancel">Cancel</button>
+                <button id="dialog-ok" class="btn-critical">Ok</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/header.js"></script>
+    <script src="scripts/navbar.js"></script>
+    <script src="scripts/students.js"></script>
 </body>
 </html>
