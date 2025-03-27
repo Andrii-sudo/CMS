@@ -136,33 +136,35 @@
                 </button>
             </div>
 
-            <div class="modal-body">
+            <form class="modal-body" id="student-form">
                 <input type="hidden" id="modal-id">
 
                 <label for="group">Group</label>
-                <select id="group">
+                <select id="group" required>
                     <option value="PZ-21">PZ-21</option>
                 </select>
 
                 <label for="first-name">First name</label>
-                <input type="text" id="first-name">
+                <input type="text" id="first-name" pattern="[A-Z][a-z]*" maxlength="20" required
+                       title="The first name must start with a capital letter and not contain numbers">
 
                 <label for="last-name">Last name</label>
-                <input type="text" id="last-name">
+                <input type="text" id="last-name" pattern="[A-Z][a-z]*" maxlength="25" required
+                       title="The last name must start with a capital letter and not contain numbers">
 
                 <label for="gender">Gender</label>
-                <select id="gender">
+                <select id="gender" required>
                     <option value="M">M</option>
                     <option value="F">F</option>
                 </select>
 
                 <label for="birthday">Birthday</label>
-                <input type="date" id="birthday">
-            </div>
+                <input type="date" id="birthday" min="1900-01-01" max="2010-01-01" required>
+            </form>
 
             <div class="modal-footer">
                 <button id="modal-cancel" class="btn-cancel">Cancel</button>
-                <button id="modal-apply"  class="btn-perform">Create</button>
+                <button type="submit" form="student-form" id="modal-apply"  class="btn-perform">Create</button>
             </div>
         </div>
     </div>

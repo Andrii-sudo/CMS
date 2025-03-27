@@ -52,22 +52,33 @@ function setModalInput(group = "", firstName = "",
 function closeModal()
 {
     document.getElementById("modal").style.display = "none";
+    document.getElementById("student-form").classList.remove("submitted");
     setModalInput();
 }
 
-function addStudent()
+function addStudent(event)
 {
+    const form = document.getElementById("student-form");
+    form.classList.add("submitted");
+
+    event.preventDefault();
+    if (!form.checkValidity())
+    {
+        form.reportValidity();
+        return;
+    }
+
     const group     = document.getElementById("group").value;
     const firstName = document.getElementById("first-name").value;
     const lastName  = document.getElementById("last-name").value;
     const gender    = document.getElementById("gender").value;
     const birthday  = document.getElementById("birthday").value;
 
-    if (!group || !firstName || !lastName || !gender || !birthday )
+    /*if (!group || !firstName || !lastName || !gender || !birthday )
     {
         alert("Please fill all fields");
         return;
-    }
+    }*/
 
     closeModal();
 
@@ -139,19 +150,24 @@ function addStudent()
     tableBody.appendChild(newRow);
 }
 
-function editStudent()
+function editStudent(event)
 {
+    const form = document.getElementById("student-form");
+    form.classList.add("submitted");
+
+    event.preventDefault();
+    if (!form.checkValidity())
+    {
+        form.reportValidity();
+
+        return;
+    }
+
     const group     = document.getElementById("group").value;
     const firstName = document.getElementById("first-name").value;
     const lastName  = document.getElementById("last-name").value;
     const gender    = document.getElementById("gender").value;
     const birthday  = document.getElementById("birthday").value;
-
-    if (!group || !firstName || !lastName || !gender || !birthday )
-    {
-        alert("Please fill all fields");
-        return;
-    }
 
     const id = document.getElementById("modal-id").value;
     const currRow = getRowById(id).querySelectorAll("td");
@@ -160,6 +176,17 @@ function editStudent()
     currRow[2].textContent = firstName + " " + INVISIBLECHAR + lastName;
     currRow[3].textContent = gender;
     currRow[4].textContent = birthday;
+
+    const jsonObject =
+    {
+        id : id,
+        firstName : firstName,
+        lastName : lastName,
+        gender : gender,
+        birthday : birthday
+    }
+
+    console.log(JSON.stringify(jsonObject));
 
     closeModal();
 }
