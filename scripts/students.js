@@ -11,6 +11,8 @@ document.getElementById("dialog-ok").addEventListener("click", deleteStudents);
 // table
 document.getElementById("main-checkbox").addEventListener("change", changeMainCheckBox);
 
+let id = 0;
+const INVISIBLECHAR = "\u200B";
 
 function showModalAdd()
 {
@@ -18,6 +20,7 @@ function showModalAdd()
     document.getElementById("modal-apply").innerText = "Create";
 
     document.getElementById("modal-apply").removeEventListener("click", addStudent);
+    document.getElementById("modal-apply").removeEventListener("click", editStudent);
     document.getElementById("modal-apply").addEventListener("click", addStudent);
 
     document.getElementById("modal").style.display = "block";
@@ -29,24 +32,28 @@ function showModalEdit()
     document.getElementById("modal-apply").innerText = "Save";
 
     document.getElementById("modal-apply").removeEventListener("click", addStudent);
-    // in future addEventListener to editStudent
+    document.getElementById("modal-apply").removeEventListener("click", editStudent);
+    document.getElementById("modal-apply").addEventListener("click", editStudent);
 
     document.getElementById("modal").style.display = "block";
+}
+
+function setModalInput(group = "", firstName = "",
+                      lastName = "", gender = "M", birthday = "", id = "")
+{
+    document.getElementById("group").value = group;
+    document.getElementById("first-name").value = firstName;
+    document.getElementById("last-name").value = lastName;
+    document.getElementById("gender").value = gender;
+    document.getElementById("birthday").value = birthday;
+    document.getElementById("modal-id").value = id;
 }
 
 function closeModal()
 {
     document.getElementById("modal").style.display = "none";
-    clearForm();
+    setModalInput();
 }
-
-function clearForm()
-{
-    document.getElementById("first-name").value = "";
-    document.getElementById("last-name").value = "";
-    document.getElementById("birthday").value = "";
-}
-
 
 function addStudent()
 {
@@ -67,6 +74,8 @@ function addStudent()
     const tableBody = document.querySelector("tbody");
     const newRow = document.createElement("tr");
 
+    newRow.dataset.id = (id++).toString(); //
+
     const cellCheckBox = document.createElement("td");
     const cellGroup    = document.createElement("td");
     const cellName     = document.createElement("td");
@@ -76,7 +85,7 @@ function addStudent()
     const cellOptions  = document.createElement("td");
 
     cellGroup.textContent    = group;
-    cellName.textContent     = firstName + " " + lastName;
+    cellName.textContent     = firstName + " " + INVISIBLECHAR + lastName;
     cellGender.textContent   = gender;
     cellBirthday.textContent = birthday;
 
@@ -90,7 +99,16 @@ function addStudent()
     const optionEdit = document.createElement("button");
     optionEdit.className = "btn-square";
     optionEdit.ariaLabel = "Edit student";
-    optionEdit.addEventListener("click", showModalEdit);
+    //optionEdit.addEventListener("click", showModalEdit);
+    optionEdit.addEventListener("click", function ()
+    {
+        const currRow = getRowById(newRow.dataset.id).querySelectorAll("td");
+        const fullName = currRow[2].textContent.split(INVISIBLECHAR);
+        
+        setModalInput(currRow[1].textContent, fullName[0].slice(0, -1), fullName[1], currRow[3].textContent,
+                      currRow[4].textContent, newRow.dataset.id);
+        showModalEdit();
+    });
 
     const iconEdit = document.createElement("i");
     iconEdit.className = "fa-solid fa-pencil";
@@ -119,6 +137,45 @@ function addStudent()
     newRow.appendChild(cellOptions);
 
     tableBody.appendChild(newRow);
+}
+
+function editStudent()
+{
+    const group     = document.getElementById("group").value;
+    const firstName = document.getElementById("first-name").value;
+    const lastName  = document.getElementById("last-name").value;
+    const gender    = document.getElementById("gender").value;
+    const birthday  = document.getElementById("birthday").value;
+
+    if (!group || !firstName || !lastName || !gender || !birthday )
+    {
+        alert("Please fill all fields");
+        return;
+    }
+
+    const id = document.getElementById("modal-id").value;
+    const currRow = getRowById(id).querySelectorAll("td");
+
+    currRow[1].textContent = group;
+    currRow[2].textContent = firstName + " " + INVISIBLECHAR + lastName;
+    currRow[3].textContent = gender;
+    currRow[4].textContent = birthday;
+
+    closeModal();
+}
+
+function getRowById(id)
+{
+    const rows = document.querySelectorAll("tbody tr");
+    let i = 0;
+    for (; i < rows.length; i++)
+    {
+        if (rows[i].dataset.id === id)
+        {
+            return rows[i];
+        }
+    }
+    throw "Invalid ID";
 }
 
 function changeMainCheckBox()
