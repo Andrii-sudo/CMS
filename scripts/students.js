@@ -74,12 +74,6 @@ function addStudent(event)
     const gender    = document.getElementById("gender").value;
     const birthday  = document.getElementById("birthday").value;
 
-    /*if (!group || !firstName || !lastName || !gender || !birthday )
-    {
-        alert("Please fill all fields");
-        return;
-    }*/
-
     closeModal();
 
     const tableBody = document.querySelector("tbody");
@@ -110,7 +104,6 @@ function addStudent(event)
     const optionEdit = document.createElement("button");
     optionEdit.className = "btn-square";
     optionEdit.ariaLabel = "Edit student";
-    //optionEdit.addEventListener("click", showModalEdit);
     optionEdit.addEventListener("click", function ()
     {
         const currRow = getRowById(newRow.dataset.id).querySelectorAll("td");

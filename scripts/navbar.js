@@ -1,15 +1,15 @@
 const strPath = location.pathname;
 const lsNav = document.querySelectorAll("#navbar-list li a");
 
-if (strPath[6] === 'd')
+if (strPath.includes('/dashboard'))
 {
     lsNav[0].style.color = "#3b82f6";
 }
-else if (strPath[6] === 's')
+else if (strPath.includes('/students'))
 {
     lsNav[1].style.color = "#3b82f6";
 }
-else if (strPath[6] === 't')
+else if (strPath.includes('/tasks'))
 {
     lsNav[2].style.color = "#3b82f6";
 }
@@ -29,5 +29,3 @@ function btnBurgerMenuShowClicked()
     }
     isNavShowed = !isNavShowed;
 }
-
-
