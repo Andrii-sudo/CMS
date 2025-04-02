@@ -61,7 +61,7 @@ function addStudent(event)
     const form = document.getElementById("student-form");
     form.classList.add("submitted");
 
-    event.preventDefault();
+    event.preventDefault(); // prevent page reload
     if (!form.checkValidity())
     {
         form.reportValidity();
@@ -79,7 +79,7 @@ function addStudent(event)
     const tableBody = document.querySelector("tbody");
     const newRow = document.createElement("tr");
 
-    newRow.dataset.id = (id++).toString(); //
+    newRow.dataset.id = (id++).toString();
 
     const cellCheckBox = document.createElement("td");
     const cellGroup    = document.createElement("td");

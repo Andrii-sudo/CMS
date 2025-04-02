@@ -278,6 +278,7 @@ form.submitted select:invalid
 {
     border: 2px solid red;
     background-color: #ffe6e6;
+    color: #800000;
 }
 
 .modal-footer,
