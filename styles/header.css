@@ -12,6 +12,27 @@ a
     background: transparent;
 }
 
+header #btnLogin {
+    display: none;
+    background: linear-gradient(to right, #111827, #111827) padding-box,
+                linear-gradient(to right, #7e22ce, #3b82f6) border-box;
+    color: white;
+    border: 2px solid transparent;
+
+    padding: 7px 15px;
+    font-size: 16px;
+    border-radius: 8px;
+
+    margin-right: 15px;
+
+    cursor: pointer;
+}
+header #btnLogin:hover
+{
+    background: linear-gradient(to right, #7e22ce, #3b82f6) padding-box,
+                linear-gradient(to right, #7e22ce, #3b82f6) border-box;
+}
+
 header
 {
     background-color: #1f2937;
@@ -75,7 +96,7 @@ h1
 .dropdown-notify
 {
     position: relative;
-    display: inline-block;
+    display: none;
     margin: 0 20px 0 0;
 }
 
@@ -198,7 +219,8 @@ h1
 
 .dropdown-profile
 {
-    display: flex;
+    display: none;
+    /*display: flex;*/
     align-items: center;
     margin: 0 25px 0 0;
 }

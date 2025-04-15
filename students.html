@@ -71,27 +71,29 @@
 
             <div class="dropdown-profile">
                 <img src="images/myPhoto.webp" width="37" height="37" alt="user photo" class="user-photo">
-                <p class="user-name">
-                    Andrii Kityk
-                </p>
+                
+                <p class="user-name"></p>
+                
                 <div class="dropdown-profile-content">
                     <a href="#">Profile</a>
-                    <a href="#">Log Out</a>
+                    <a href="server/index.php?action=logout">Log Out</a>
                 </div>
             </div>
+
+            <button id="btnLogin">Login</button>
         </div>
     </header>
 
     <nav>
         <ul id="navbar-list">
             <li>
-                <a href="./dashboard.html">Dashboard</a>
+                <a href="#">Dashboard</a>
             </li>
             <li>
-                <a href="./students.html">Students</a>
+                <a href="#">Students</a>
             </li>
             <li>
-                <a href="./tasks.html">Tasks</a>
+                <a href="#">Tasks</a>
             </li>
         </ul>
     </nav>
@@ -129,25 +131,81 @@
         </div>
     </main>
 
-    <div id="modal">
+    <div class="modal" id="modal-login">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 id="modal-title">Add Student</h3>
-                <button id="modal-close" class="btn-square" aria-label="Close">
+                <h3 id="modal-login-title">Login</h3>
+                <button id="modal-login-close" class="btn-square" aria-label="Close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form class="modal-body" id="login-form" action="server/index.php?action=login" method="POST">
+                <label for="login">Login</label>
+                <input type="text" id="login" name="login" pattern="[A-Z][A-Za-z\`\- ]*" maxlength="45" required
+                       title="Login must start with a capital letter and not contain numbers">
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required
+                       title="Password is required">
+            </form>
+            <div id="login-error">
+                Invalid login or password
+            </div>
+            
+            <div class="modal-footer">
+                <button id="modal-login-cancel" class="btn-cancel">Cancel</button>
+                <button type="submit" form="login-form" id="modal-login-apply" class="btn-perform">Login</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal-student">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-student-title">Add Student</h3>
+                <button id="modal-student-close" class="btn-square" aria-label="Close">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
 
             <form class="modal-body" id="student-form">
-                <input type="hidden" id="modal-id">
+                <input type="hidden" id="modal-student-id">
 
                 <label for="group">Group</label>
-                <select id="group" required>
+                <select id="group">
+                    <option value="PZ-11">PZ-11</option>
+                    <option value="PZ-12">PZ-12</option>
+                    <option value="PZ-13">PZ-13</option>
+                    <option value="PZ-14">PZ-14</option>
+                    <option value="PZ-15">PZ-15</option>
+                    <option value="PZ-16">PZ-16</option>
+                    <option value="PZ-17">PZ-17</option>
                     <option value="PZ-21">PZ-21</option>
+                    <option value="PZ-22">PZ-22</option>
+                    <option value="PZ-23">PZ-23</option>
+                    <option value="PZ-24">PZ-24</option>
+                    <option value="PZ-25">PZ-25</option>
+                    <option value="PZ-26">PZ-26</option>
+                    <option value="PZ-27">PZ-27</option>
+                    <option value="PZ-31">PZ-31</option>
+                    <option value="PZ-32">PZ-32</option>
+                    <option value="PZ-33">PZ-33</option>
+                    <option value="PZ-34">PZ-34</option>
+                    <option value="PZ-35">PZ-35</option>
+                    <option value="PZ-36">PZ-36</option>
+                    <option value="PZ-37">PZ-37</option>
+                    <option value="PZ-41">PZ-41</option>
+                    <option value="PZ-42">PZ-42</option>
+                    <option value="PZ-43">PZ-43</option>
+                    <option value="PZ-44">PZ-44</option>
+                    <option value="PZ-45">PZ-45</option>
+                    <option value="PZ-46">PZ-46</option>
+                    <option value="PZ-47">PZ-47</option>
                 </select>
 
                 <label for="first-name">First name</label>
-                <input type="text" id="first-name" pattern="[A-Z][a-z\`\-]*" maxlength="20" required
+                <input type="text" id="first-name"
                        title="The first name must start with a capital letter and not contain numbers">
 
                 <label for="last-name">Last name</label>
@@ -155,18 +213,18 @@
                        title="The last name must start with a capital letter and not contain numbers">
 
                 <label for="gender">Gender</label>
-                <select id="gender" required>
+                <select id="gender">
                     <option value="M">M</option>
                     <option value="F">F</option>
                 </select>
 
                 <label for="birthday">Birthday</label>
-                <input type="date" id="birthday" min="1900-01-01" max="2010-01-01" required>
+                <input type="date" id="birthday">
             </form>
 
             <div class="modal-footer">
-                <button id="modal-cancel" class="btn-cancel">Cancel</button>
-                <button type="submit" form="student-form" id="modal-apply"  class="btn-perform">Create</button>
+                <button id="modal-student-cancel" class="btn-cancel">Cancel</button>
+                <button type="submit" form="student-form" id="modal-student-apply" class="btn-perform">Create</button>
             </div>
         </div>
     </div>

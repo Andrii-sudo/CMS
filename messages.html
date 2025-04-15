@@ -64,14 +64,16 @@
 
             <div class="dropdown-profile">
                 <img src="images/myPhoto.webp" width="37" height="37" alt="user photo" class="user-photo">
-                <p class="user-name">
-                    Andrii Kityk
-                </p>
+                
+                <p class="user-name"></p>
+                
                 <div class="dropdown-profile-content">
                     <a href="#">Profile</a>
-                    <a href="#">Log Out</a>
+                    <a href="server/index.php?action=logout">Log Out</a>
                 </div>
             </div>
+
+            <button id="btnLogin">Login</button>
         </div>
     </header>
 
@@ -91,5 +93,6 @@
 
     <script src="scripts/header.js"></script>
     <script src="scripts/navbar.js"></script>
+    <script src="scripts/messages.js"></script>
 </body>
 </html>

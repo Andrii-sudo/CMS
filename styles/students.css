@@ -30,6 +30,12 @@ h2
     transition: 0.2s;
 }
 
+.btn-square.active 
+{
+    background-color: #2d4b74;
+}
+
+
 .btn-square i
 {
     display: inline-block;
@@ -156,7 +162,7 @@ td .btn-square
     margin: 15px 2px;
 }
 
-#modal,
+.modal,
 #dialog
 {
     display: none;
@@ -191,6 +197,25 @@ td .btn-square
     min-width: 300px;
     margin: 0 auto;
     border-radius: 10px;
+}
+
+#modal-login .modal-content
+{
+    width: 30%;
+}
+
+#login-error
+{
+    display: none;
+    padding: 15px;
+    background-color: #f8d7da; 
+    border: 1px solid #f5c6cb;  
+    border-radius: 5px;         
+    color: #721c24;            
+    font-weight: bold;          
+    width: 80%;      
+    margin: 0 auto 10px auto;       
+    text-align: center;         
 }
 
 .modal-header,
@@ -254,6 +279,7 @@ h3
 
 .modal-body select,
 .modal-body input[type="text"],
+.modal-body input[type="password"],
 .modal-body input[type="date"]
 {
     background-color: #4B5563;
@@ -273,12 +299,19 @@ h3
     outline: 1px solid #3b82f6;
 }
 
-form.submitted input:invalid,
+/*form.submitted input:invalid,
 form.submitted select:invalid
 {
     border: 2px solid red;
     background-color: #ffe6e6;
     color: #800000;
+}*/
+
+.invalid
+{
+    border: 2px solid red !important;
+    background-color: #ffe6e6 !important;
+    color: #800000 !important;
 }
 
 .modal-footer,
