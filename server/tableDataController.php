@@ -5,9 +5,9 @@ class TableDataController
 {
     private $model;
 
-    public function __construct()
+    public function __construct($conn)
     {
-        $this->model = new TableDataModel();
+        $this->model = new TableDataModel($conn);
     }
 
     public function sendPage()

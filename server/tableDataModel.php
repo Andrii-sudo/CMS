@@ -2,87 +2,78 @@
 class TableDataModel
 {
     private $rowOnPage = 6;
-    private $id;
+    private $conn;
 
-    private $data;
-
-    public function __construct()
+    public function __construct($conn)
     {
-        if (file_exists("students.json"))
-        {
-            $json = file_get_contents("students.json");
-            $decoded = json_decode($json, true);
-            
-            $this->data = $decoded["students"];
-            $this->id = $decoded["lastId"];
-        }
-        else
-        {
-            $this->data = [];
-            $this->id = 0;
-        }
-    }
-
-    private function saveStudents()
-    {
-        $save = 
-        [
-            "lastId" => $this->id,
-            "students" => $this->data
-        ];
-
-        file_put_contents("students.json", json_encode($save));
+        $this->conn = $conn;
     }
 
     public function getRows($page)
     {
         $start = ($page - 1) * $this->rowOnPage; 
-        return array_slice($this->data, $start, $this->rowOnPage);
+
+        $stmt = $this->conn->prepare("SELECT * FROM students2 LIMIT ? OFFSET ?");
+        $stmt->bind_param("ii", $this->rowOnPage, $start);
+        $stmt->execute();
+        
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     public function getTotalPages()
     {
-        return ceil(count($this->data) / $this->rowOnPage);
+        $query = "SELECT COUNT(*) as total FROM students2";
+        $result = $this->conn->query($query);
+
+        return ceil($result->fetch_assoc()["total"] / $this->rowOnPage);
     }
 
     public function addStudent($student)
     {
-        $student["id"] = (string)($this->id++);
-        array_push($this->data, $student);
-        $this->saveStudents();
+        $stmt = $this->conn->prepare("INSERT INTO `students2` (`group`, `firstName`, `lastName`, `gender`, `birthday`) 
+                                       VALUES (?, ?, ?, ?, ?)");
+        
+        $stmt->bind_param(
+            "sssss", 
+            $student["group"], 
+            $student["firstName"], 
+            $student["lastName"], 
+            $student["gender"], 
+            $student["birthday"]);
+
+        $stmt->execute();
     }
 
     public function editStudent($student)
     {
-        $id = $student["id"];
-        for ($i = 0; $i < count($this->data); $i++)
-        {
-            if (isset($this->data[$i]) && $this->data[$i]["id"] == $id)
-            {
-                $this->data[$i]["group"]     = $student["group"];
-                $this->data[$i]["firstName"] = $student["firstName"];
-                $this->data[$i]["lastName"]  = $student["lastName"];
-                $this->data[$i]["gender"]    = $student["gender"];     
-                $this->data[$i]["birthday"]  = $student["birthday"];
-                break;
-            }
-        }
-        $this->saveStudents();
+        $stmt = $this->conn->prepare("UPDATE `students2` SET `group` = ?, `firstName` = ?, `lastName` = ?, `gender` = ?, `birthday` = ? WHERE `id` = ?");
+        $stmt->bind_param(
+            "ssssss",
+            $student["group"],
+            $student["firstName"],  
+            $student["lastName"],
+            $student["gender"],
+            $student["birthday"],
+            $student["id"]);
+
+        $stmt->execute();    
     }
 
     public function delStudent($id)
     {
-        for ($i = 0; $i < count($this->data); $i++)
+        $stmt = $this->conn->prepare("DELETE FROM `students2` WHERE `id` = ?");
+        $stmt->bind_param("s", $id);
+        $stmt->execute();
+
+        if ($stmt->affected_rows > 0) 
         {
-            if (isset($this->data[$i]) && $this->data[$i]["id"] == $id)
-            {
-                unset($this->data[$i]);
-                $this->data = array_values($this->data);
-                $this->saveStudents();
-                return true;
-            }
+            return true;
         }
-        return false;
+        else
+        {
+            return false;
+        }
     }
 
     public function validateStudent($student)
@@ -139,17 +130,17 @@ class TableDataModel
     }
 
     public function isDuplicate($student)
-    {
-        foreach ($this->data as $existingStudent) 
+    {   
+        $stmt = $this->conn->prepare("SELECT COUNT(*) as total FROM students2 WHERE firstName = ? AND lastName = ? AND birthday = ?");
+        $stmt->bind_param("sss", $student["firstName"], $student["lastName"], $student["birthday"]);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        if ($row = $result->fetch_assoc()) 
         {
-            if (
-                $existingStudent["firstName"] === $student["firstName"] &&
-                $existingStudent["lastName"] === $student["lastName"] &&
-                $existingStudent["birthday"] === $student["birthday"]) 
-            {
-                return true;
-            }
+            return $row["total"] > 0;
         }
+
         return false;
     }
 }

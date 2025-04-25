@@ -5,9 +5,9 @@ class LoginController
 {
     private $model;
 
-    public function __construct()
+    public function __construct($conn)
     {
-        $this->model = new UserModel();
+        $this->model = new UserModel($conn);
     }
 
     public function login($login, $password)
