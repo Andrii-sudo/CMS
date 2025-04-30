@@ -47,7 +47,8 @@ class TableDataModel
 
     public function editStudent($student)
     {
-        $stmt = $this->conn->prepare("UPDATE `students2` SET `group` = ?, `firstName` = ?, `lastName` = ?, `gender` = ?, `birthday` = ? WHERE `id` = ?");
+        $stmt = $this->conn->prepare("UPDATE `students2` SET `group` = ?, `firstName` = ?, `lastName` = ?, `gender` = ?, `birthday` = ? 
+                                      WHERE `id` = ?");           
         $stmt->bind_param(
             "ssssss",
             $student["group"],
