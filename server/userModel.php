@@ -1,21 +1,25 @@
 <?php
 class UserModel
 {
-    private $users =
-    [
-        ["login" => "Andrii Kityk", "password" => "05.12.2005"],
-        ["login" => "John Doe",     "password" => "01.01.2000"]
-    ];
+    private $conn;
+
+    public function __construct($conn)
+    {
+        $this->conn = $conn;
+    }
 
     public function checkUser($login, $password)
     {
-        foreach ($this->users as $user)
+        $stmt = $this->conn->prepare("SELECT * FROM students2 WHERE CONCAT(firstName, ' ', lastName) = ? AND birthday = ?");
+        $stmt->bind_param("ss", $login, $password);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($user = $result->fetch_assoc())
         {
-            if ($user["login"] === $login && $user["password"] === $password)
-            {
-                return $user["login"];
-            }
+            return $user["firstName"] . " " . $user["lastName"];
         }
+                
         return "";
     }
 }

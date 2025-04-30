@@ -1,11 +1,12 @@
 <?php
 require_once "loginController.php";
 require_once "tableDataController.php";
+require_once "db.php";
 
 $action = isset($_GET["action"]) ? $_GET["action"] : null;
 
-$loginController = new LoginController();
-$tableDataController = new TableDataController();
+$loginController = new LoginController($conn);
+$tableDataController = new TableDataController($conn);
 
 switch ($action)
 {
@@ -56,4 +57,5 @@ switch ($action)
         break;
 }
 
+mysqli_close($conn);
 ?>
