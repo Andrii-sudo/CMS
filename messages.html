@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/messages.css">
 
     <link rel="stylesheet" href="styles/all.min.css">
 </head>
@@ -90,6 +91,59 @@
             </li>
         </ul>
     </nav>
+
+    <main>
+        <h2>Messages</h2>
+
+        <div style="display: flex;">
+            <div id="chat-rooms-list">
+                <div id="chat-rooms-list-header-header">
+                    <span><strong>Chat room</strong></span>
+                    <button id="add-new-chat">+ New chat room</button>
+                </div>
+                <div class="chat-room-button selected">Admin</div>
+                <div class="chat-room-button">Ann Smith</div>
+                <div class="chat-room-button">John Bond</div>
+                <div class="chat-room-button">Ivon Stan</div>
+            </div>
+
+            <div id="chat-room">
+                <div style="padding: 10px;">
+                    <h4>Chat room Admin</h4>
+                    <div>
+                        <p style="margin-bottom: 15px; font-weight: bold; color: white;">Members</p>
+                        <div class="members-container">
+                            <img class="member-avatar" src="images/userPhoto.webp" alt="user photo">
+                            <img class="member-avatar" src="images/userPhoto.webp" alt="user photo">
+                            <img class="member-avatar" src="images/userPhoto.webp" alt="user photo">
+                            <img class="member-avatar" src="images/userPhoto.webp" alt="user photo">
+                            <button id="add-member">+</button>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 20px;">
+                        <strong>Messages</strong>
+                        <div class="message incoming">
+                            <img class="avatar" src="images/userPhoto.webp" alt="user photo">
+                            <div class="bubble">Hello!</div>
+                            <span class="sender-name">Admin</span>
+                        </div>
+
+                        <div class="message outgoing">
+                            <div class="bubble">Hi!</div>
+                            <img class="avatar" src="images/myPhoto.webp" alt="user photo">
+                            <span class="sender-name">Me</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="message-input">
+                    <input type="text" placeholder="Type a message...">
+                    <button><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </main>
+
 
     <script src="scripts/header.js"></script>
     <script src="scripts/navbar.js"></script>

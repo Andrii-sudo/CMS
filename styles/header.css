@@ -5,6 +5,23 @@ body
     background-color: #111827;
 }
 
+main
+{
+    position: relative;
+    top: 50px;
+    left: 200px;
+
+    width: calc(100% - 200px);
+}
+
+h2
+{
+    color: white;
+
+    margin: 20px 0 0 5% ;
+    font-weight: 500;
+}
+
 a
 {
     color: inherit;
