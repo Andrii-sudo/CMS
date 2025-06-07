@@ -116,6 +116,52 @@ h1
     display: none;
     margin: 0 20px 0 0;
 }
+.dropdown-notify-content
+{
+    display: none;
+    position: absolute;
+    top: 27px;
+    left: -100px;
+    background-color: #1f2937;
+    border: 2px solid rgb(155, 155, 155);
+    padding: 8px 8px 0 0;
+
+    animation: dropdownAnim 0.4s;
+}
+
+.dropdown-notify:hover .dropdown-notify-content
+{
+    display: block;
+}
+
+.dropdown-notify-item
+{
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    margin: 0 0 10px 0;
+}
+
+.dropdown-notify-message
+{
+    height: 34px;
+    width: 194px;
+    font-size: 14px;
+
+    color: white;
+    background-color: #374151;
+    border: 1px solid rgb(155, 155, 155);
+    border-radius: 4px;
+
+    margin: 5px 0 0 0;
+    padding: 7px;
+
+    box-sizing: border-box;
+
+    white-space: nowrap; /* Без переносу на новий рядок */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 .notify-icon-container
 {
@@ -142,41 +188,14 @@ h1
     font-size: 25px;
 }
 
-.notify-icon-container i:hover
+.bell-animate 
 {
     animation: bellAnimation 2s ease-in-out;
 }
 
-.dropdown-notify-content
-{
-    display: none;
-    position: absolute;
-    top: 27px;
-    left: -100px;
-    background-color: #1f2937;
-    border: 2px solid rgb(155, 155, 155);
-    padding: 8px 8px 0 0;
-
-    animation: dropdownAnim 0.4s;
-}
-
-.dropdown-notify:hover .dropdown-notify-content
-{
-    display: block;
-}
-
-@keyframes dropdownAnim
-{
-    from { left: 0; opacity: 0; }
-    to { left: -100px; opacity: 1; }
-}
-
-.dropdown-notify-item
-{
-    display: flex;
-    flex-direction: row;
-    height: 60px;
-    margin: 0 0 10px 0;
+.notification-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
 }
 
 .notify-user-info
@@ -190,6 +209,12 @@ h1
 {
     color: white;
     margin: 5px 0 0 0;
+
+    max-width: 100px; 
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .dropdown-notify-message

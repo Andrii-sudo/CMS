@@ -31,35 +31,7 @@
                     <span id="notify-indicator"></span>
                 </div>
                 <div class="dropdown-notify-content">
-                    <div class="dropdown-notify-item">
-                        <div class="notify-user-info">
-                            <img src="images/userPhoto.webp" alt="user photo" class="user-photo">
-                            <p class="notify-user-name">Admin</p>
-                        </div>
-                        <p class="dropdown-notify-message">
-                            The sun rises softly over the misty mountains
-                        </p>
-                    </div>
-
-                    <div class="dropdown-notify-item">
-                        <div class="notify-user-info">
-                            <img src="images/userPhoto.webp" alt="user photo" class="user-photo">
-                            <p class="notify-user-name">Admin</p>
-                        </div>
-                        <p class="dropdown-notify-message">
-                            Jack finished his coffee and grabbed his keys
-                        </p>
-                    </div>
-
-                    <div class="dropdown-notify-item">
-                        <div class="notify-user-info">
-                            <img src="images/userPhoto.webp" alt="user photo" class="user-photo">
-                            <p class="notify-user-name">Admin</p>
-                        </div>
-                        <p class="dropdown-notify-message">
-                            Summer breeze whispers through the open window
-                        </p>
-                    </div>
+                    <!-- Remove all default notification items -->
                 </div>
             </div>
 
@@ -101,38 +73,25 @@
                     <span><strong>Chat room</strong></span>
                     <button id="add-new-chat">+ New chat room</button>
                 </div>
-                <div class="chat-room-button selected">Admin</div>
-                <div class="chat-room-button">Ann Smith</div>
-                <div class="chat-room-button">John Bond</div>
-                <div class="chat-room-button">Ivon Stan</div>
+                <div id="chat-room-buttons-container">
+                    <!-- Chat rooms will be added dynamically -->
+                </div>
             </div>
 
             <div id="chat-room">
                 <div style="padding: 10px;">
-                    <h4>Chat room Admin</h4>
+                    <h4>Chat room</h4>
                     <div>
                         <p style="margin-bottom: 15px; font-weight: bold; color: white;">Members</p>
                         <div class="members-container">
-                            <img class="member-avatar" src="images/userPhoto.webp" alt="user photo">
-                            <img class="member-avatar" src="images/userPhoto.webp" alt="user photo">
-                            <img class="member-avatar" src="images/userPhoto.webp" alt="user photo">
-                            <img class="member-avatar" src="images/userPhoto.webp" alt="user photo">
-                            <button id="add-member">+</button>
+                            <!-- Members will be added dynamically -->
                         </div>
                     </div>
 
                     <div style="margin-top: 20px;">
                         <strong>Messages</strong>
-                        <div class="message incoming">
-                            <img class="avatar" src="images/userPhoto.webp" alt="user photo">
-                            <div class="bubble">Hello!</div>
-                            <span class="sender-name">Admin</span>
-                        </div>
-
-                        <div class="message outgoing">
-                            <div class="bubble">Hi!</div>
-                            <img class="avatar" src="images/myPhoto.webp" alt="user photo">
-                            <span class="sender-name">Me</span>
+                        <div id="messages-container">
+                            <!-- Messages will be added dynamically -->
                         </div>
                     </div>
                 </div>
@@ -144,9 +103,57 @@
         </div>
     </main>
 
+    <div id="new-chat-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create New Chat Room</h3>
+                <button class="btn-square" id="close-new-chat-modal" aria-label="Close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form class="modal-body" id="new-chat-form">
+                <label for="chat-room-name">Chat Room Name:</label>
+                <input type="text" id="chat-room-name" placeholder="Enter room name" required>
+
+                <label for="user-search">Add Members:</label>
+                <input type="text" id="user-search" placeholder="Search users...">
+
+                <div id="user-suggestions" style="grid-column: 1 / -1;"></div>
+            </form>
+
+            <div class="modal-footer">
+                <button class="btn-cancel" id="cancel-new-chat">Cancel</button>
+                <button type="submit" form="new-chat-form" class="btn-perform">Create</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="add-member-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Member</h3>
+                <button class="btn-square" id="close-add-member-modal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label for="add-member-username">Username:</label>
+                <input type="text" id="add-member-username" placeholder="Enter username...">
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" id="cancel-add-member">Cancel</button>
+                <button class="btn-perform" id="confirm-add-member">Add</button>
+            </div>
+        </div>
+    </div>
 
     <script src="scripts/header.js"></script>
     <script src="scripts/navbar.js"></script>
+
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="scripts/notifications.js"></script>
     <script src="scripts/messages.js"></script>
+
 </body>
 </html>
