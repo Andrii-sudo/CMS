@@ -55,6 +55,19 @@ switch ($action)
             $tableDataController->delStudents($data["ids"]);
         }
         break;
+
+    case "checkUserExists":
+        if ($_SERVER["REQUEST_METHOD"] === "POST") 
+        {
+            header("Content-Type: application/json");
+            $data = json_decode(file_get_contents("php://input"), true);
+            $username = $data["username"];
+            require_once "userModel.php";
+            $userModel = new UserModel($conn);
+            $exists = $userModel->userExistsByName($username);
+            echo json_encode(["exists" => $exists]);
+        }
+        break;
 }
 
 mysqli_close($conn);
